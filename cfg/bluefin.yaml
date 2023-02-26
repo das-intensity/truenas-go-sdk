@@ -92,7 +92,7 @@ paths:
       operationId: createDataset
       security:
         - bearerAuth: [ ]
-      description: |+
+      description: |-
         Creates a dataset/zvol.
 
         `volsize` is required for type=VOLUME and is supposed to be a multiple of the block size.
@@ -220,7 +220,7 @@ paths:
           required: true
           schema:
             type: string
-      description: |+
+      description: |-
         Delete dataset/zvol
 
         `recursive` will also delete/destroy all children datasets.
@@ -326,7 +326,7 @@ paths:
       operationId: createCronJob
       security:
         - bearerAuth: [ ]
-      description:
+      description: |-
         Create a new cron job.
 
         `stderr` and `stdout` are boolean values which if `true`, represent that we would like to suppress
