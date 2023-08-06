@@ -1462,6 +1462,73 @@ paths:
           description: No authorization for this endpoint
       tags:
       - vm
+  /interface:
+    get:
+      description: |-
+        Query Interfaces with `query-filters` and `query-options`
+
+        `query-options.extra` can be specified as query parameters with prefixing them with `extra.` prefix. For example, `extra.retrieve_properties=false` will pass `retrieve_properties` as an extra argument to pool/dataset endpoint.
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          description: Operation succeeded
+        "401":
+          description: No authorization for this endpoint
+      tags:
+      - interface
+    post:
+      description: |+
+        Create virtual interfaces (Link Aggregation, VLAN)
+
+        For BRIDGE `type` the following attribute is required: bridge_members.
+
+        For LINK_AGGREGATION `type` the following attributes are required: lag_ports,
+        lag_protocol.
+
+        For VLAN `type` the following attributes are required: vlan_parent_interface,
+        vlan_tag and vlan_pcp.
+
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/interface_create'
+      responses:
+        "200":
+          description: Operation succeeded
+        "401":
+          description: No authorization for this endpoint
+      tags:
+      - interface
 components:
   responses:
     NotFound:
@@ -3252,6 +3319,124 @@ components:
       items:
         $ref: '#/components/schemas/VM'
       type: array
+    interface_create:
+      additionalProperties: false
+      default: {}
+      properties:
+        name:
+          title: name
+          type: string
+        description:
+          default: ""
+          title: description
+          type: string
+        type:
+          description: |-
+            For BRIDGE `type` the following attribute is required: bridge_members.
+            For LINK_AGGREGATION `type` the following attributes are required: lag_ports,
+            lag_protocol.
+            For VLAN `type` the following attributes are required: vlan_parent_interface,
+            vlan_tag and vlan_pcp.
+          enum:
+          - BRIDGE
+          - LINK_AGGREGATION
+          - VLAN
+          title: type
+          type: string
+        ipv4_dhcp:
+          default: false
+          title: ipv4_dhcp
+          type: boolean
+        ipv6_auto:
+          default: false
+          title: ipv6_auto
+          type: boolean
+        aliases:
+          default: []
+          items:
+            $ref: '#/components/schemas/interface_alias'
+          title: aliases
+          type: array
+        failover_critical:
+          default: false
+          title: failover_critical
+          type: boolean
+        failover_group:
+          nullable: true
+          title: failover_group
+          type: integer
+        failover_vhid:
+          nullable: true
+          title: failover_vhid
+          type: integer
+        failover_aliases:
+          default: []
+          items:
+            $ref: '#/components/schemas/interface_failover_alias'
+          title: failover_aliases
+          type: array
+        failover_virtual_aliases:
+          default: []
+          items:
+            $ref: '#/components/schemas/interface_virtual_alias'
+          title: failover_virtual_aliases
+          type: array
+        bridge_members:
+          default: []
+          items: {}
+          title: bridge_members
+          type: array
+        stp:
+          default: true
+          title: stp
+          type: boolean
+        lag_protocol:
+          enum:
+          - LACP
+          - FAILOVER
+          - LOADBALANCE
+          - ROUNDROBIN
+          - NONE
+          title: lag_protocol
+          type: string
+        xmit_hash_policy:
+          enum:
+          - LAYER2
+          - LAYER2+3
+          - LAYER3+4
+          nullable: true
+          title: xmit_hash_policy
+          type: string
+        lacpdu_rate:
+          enum:
+          - SLOW
+          - FAST
+          nullable: true
+          title: lacpdu_rate
+          type: string
+        lag_ports:
+          default: []
+          items:
+            title: interface
+            type: string
+          title: lag_ports
+          type: array
+        vlan_parent_interface:
+          title: vlan_parent_interface
+          type: string
+        vlan_tag:
+          title: vlan_tag
+          type: integer
+        vlan_pcp:
+          nullable: true
+          title: vlan_pcp
+          type: integer
+        mtu:
+          nullable: true
+          title: mtu
+          type: integer
+      title: interface_create
+      type: object
     CreateDatasetParams_encryption_options:
       example:
         generate_key: true
@@ -3343,6 +3528,57 @@ components:
           type: integer
         domain_state:
           type: string
+      type: object
+    interface_alias:
+      additionalProperties: false
+      default: {}
+      properties:
+        type:
+          default: INET
+          enum:
+          - INET
+          - INET6
+          title: type
+          type: string
+        address:
+          title: address
+          type: string
+        netmask:
+          title: netmask
+          type: integer
+      title: interface_alias
+      type: object
+    interface_failover_alias:
+      additionalProperties: false
+      default: {}
+      properties:
+        type:
+          default: INET
+          enum:
+          - INET
+          - INET6
+          title: type
+          type: string
+        address:
+          title: address
+          type: string
+      title: interface_failover_alias
+      type: object
+    interface_virtual_alias:
+      additionalProperties: false
+      default: {}
+      properties:
+        type:
+          default: INET
+          enum:
+          - INET
+          - INET6
+          title: type
+          type: string
+        address:
+          title: address
+          type: string
+      title: interface_virtual_alias
       type: object
   securitySchemes:
     bearerAuth:
