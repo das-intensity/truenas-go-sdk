@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the UserGroup type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &UserGroup{}
+
 // UserGroup struct for UserGroup
 type UserGroup struct {
 	Id                   *int32   `json:"id,omitempty"`
@@ -48,7 +51,7 @@ func NewUserGroupWithDefaults() *UserGroup {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *UserGroup) GetId() int32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret int32
 		return ret
 	}
@@ -58,7 +61,7 @@ func (o *UserGroup) GetId() int32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserGroup) GetIdOk() (*int32, bool) {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
 	return o.Id, true
@@ -66,7 +69,7 @@ func (o *UserGroup) GetIdOk() (*int32, bool) {
 
 // HasId returns a boolean if a field has been set.
 func (o *UserGroup) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -80,7 +83,7 @@ func (o *UserGroup) SetId(v int32) {
 
 // GetBsdgrpGid returns the BsdgrpGid field value if set, zero value otherwise.
 func (o *UserGroup) GetBsdgrpGid() int32 {
-	if o == nil || isNil(o.BsdgrpGid) {
+	if o == nil || IsNil(o.BsdgrpGid) {
 		var ret int32
 		return ret
 	}
@@ -90,7 +93,7 @@ func (o *UserGroup) GetBsdgrpGid() int32 {
 // GetBsdgrpGidOk returns a tuple with the BsdgrpGid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserGroup) GetBsdgrpGidOk() (*int32, bool) {
-	if o == nil || isNil(o.BsdgrpGid) {
+	if o == nil || IsNil(o.BsdgrpGid) {
 		return nil, false
 	}
 	return o.BsdgrpGid, true
@@ -98,7 +101,7 @@ func (o *UserGroup) GetBsdgrpGidOk() (*int32, bool) {
 
 // HasBsdgrpGid returns a boolean if a field has been set.
 func (o *UserGroup) HasBsdgrpGid() bool {
-	if o != nil && !isNil(o.BsdgrpGid) {
+	if o != nil && !IsNil(o.BsdgrpGid) {
 		return true
 	}
 
@@ -112,7 +115,7 @@ func (o *UserGroup) SetBsdgrpGid(v int32) {
 
 // GetBsdgrpGroup returns the BsdgrpGroup field value if set, zero value otherwise.
 func (o *UserGroup) GetBsdgrpGroup() string {
-	if o == nil || isNil(o.BsdgrpGroup) {
+	if o == nil || IsNil(o.BsdgrpGroup) {
 		var ret string
 		return ret
 	}
@@ -122,7 +125,7 @@ func (o *UserGroup) GetBsdgrpGroup() string {
 // GetBsdgrpGroupOk returns a tuple with the BsdgrpGroup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserGroup) GetBsdgrpGroupOk() (*string, bool) {
-	if o == nil || isNil(o.BsdgrpGroup) {
+	if o == nil || IsNil(o.BsdgrpGroup) {
 		return nil, false
 	}
 	return o.BsdgrpGroup, true
@@ -130,7 +133,7 @@ func (o *UserGroup) GetBsdgrpGroupOk() (*string, bool) {
 
 // HasBsdgrpGroup returns a boolean if a field has been set.
 func (o *UserGroup) HasBsdgrpGroup() bool {
-	if o != nil && !isNil(o.BsdgrpGroup) {
+	if o != nil && !IsNil(o.BsdgrpGroup) {
 		return true
 	}
 
@@ -144,7 +147,7 @@ func (o *UserGroup) SetBsdgrpGroup(v string) {
 
 // GetBsdgrpBuiltin returns the BsdgrpBuiltin field value if set, zero value otherwise.
 func (o *UserGroup) GetBsdgrpBuiltin() bool {
-	if o == nil || isNil(o.BsdgrpBuiltin) {
+	if o == nil || IsNil(o.BsdgrpBuiltin) {
 		var ret bool
 		return ret
 	}
@@ -154,7 +157,7 @@ func (o *UserGroup) GetBsdgrpBuiltin() bool {
 // GetBsdgrpBuiltinOk returns a tuple with the BsdgrpBuiltin field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserGroup) GetBsdgrpBuiltinOk() (*bool, bool) {
-	if o == nil || isNil(o.BsdgrpBuiltin) {
+	if o == nil || IsNil(o.BsdgrpBuiltin) {
 		return nil, false
 	}
 	return o.BsdgrpBuiltin, true
@@ -162,7 +165,7 @@ func (o *UserGroup) GetBsdgrpBuiltinOk() (*bool, bool) {
 
 // HasBsdgrpBuiltin returns a boolean if a field has been set.
 func (o *UserGroup) HasBsdgrpBuiltin() bool {
-	if o != nil && !isNil(o.BsdgrpBuiltin) {
+	if o != nil && !IsNil(o.BsdgrpBuiltin) {
 		return true
 	}
 
@@ -176,7 +179,7 @@ func (o *UserGroup) SetBsdgrpBuiltin(v bool) {
 
 // GetBsdgrpSudo returns the BsdgrpSudo field value if set, zero value otherwise.
 func (o *UserGroup) GetBsdgrpSudo() bool {
-	if o == nil || isNil(o.BsdgrpSudo) {
+	if o == nil || IsNil(o.BsdgrpSudo) {
 		var ret bool
 		return ret
 	}
@@ -186,7 +189,7 @@ func (o *UserGroup) GetBsdgrpSudo() bool {
 // GetBsdgrpSudoOk returns a tuple with the BsdgrpSudo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserGroup) GetBsdgrpSudoOk() (*bool, bool) {
-	if o == nil || isNil(o.BsdgrpSudo) {
+	if o == nil || IsNil(o.BsdgrpSudo) {
 		return nil, false
 	}
 	return o.BsdgrpSudo, true
@@ -194,7 +197,7 @@ func (o *UserGroup) GetBsdgrpSudoOk() (*bool, bool) {
 
 // HasBsdgrpSudo returns a boolean if a field has been set.
 func (o *UserGroup) HasBsdgrpSudo() bool {
-	if o != nil && !isNil(o.BsdgrpSudo) {
+	if o != nil && !IsNil(o.BsdgrpSudo) {
 		return true
 	}
 
@@ -208,7 +211,7 @@ func (o *UserGroup) SetBsdgrpSudo(v bool) {
 
 // GetBsdgrpSudoNopasswd returns the BsdgrpSudoNopasswd field value if set, zero value otherwise.
 func (o *UserGroup) GetBsdgrpSudoNopasswd() bool {
-	if o == nil || isNil(o.BsdgrpSudoNopasswd) {
+	if o == nil || IsNil(o.BsdgrpSudoNopasswd) {
 		var ret bool
 		return ret
 	}
@@ -218,7 +221,7 @@ func (o *UserGroup) GetBsdgrpSudoNopasswd() bool {
 // GetBsdgrpSudoNopasswdOk returns a tuple with the BsdgrpSudoNopasswd field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserGroup) GetBsdgrpSudoNopasswdOk() (*bool, bool) {
-	if o == nil || isNil(o.BsdgrpSudoNopasswd) {
+	if o == nil || IsNil(o.BsdgrpSudoNopasswd) {
 		return nil, false
 	}
 	return o.BsdgrpSudoNopasswd, true
@@ -226,7 +229,7 @@ func (o *UserGroup) GetBsdgrpSudoNopasswdOk() (*bool, bool) {
 
 // HasBsdgrpSudoNopasswd returns a boolean if a field has been set.
 func (o *UserGroup) HasBsdgrpSudoNopasswd() bool {
-	if o != nil && !isNil(o.BsdgrpSudoNopasswd) {
+	if o != nil && !IsNil(o.BsdgrpSudoNopasswd) {
 		return true
 	}
 
@@ -240,7 +243,7 @@ func (o *UserGroup) SetBsdgrpSudoNopasswd(v bool) {
 
 // GetBsdgrpSudoCommands returns the BsdgrpSudoCommands field value if set, zero value otherwise.
 func (o *UserGroup) GetBsdgrpSudoCommands() []string {
-	if o == nil || isNil(o.BsdgrpSudoCommands) {
+	if o == nil || IsNil(o.BsdgrpSudoCommands) {
 		var ret []string
 		return ret
 	}
@@ -250,7 +253,7 @@ func (o *UserGroup) GetBsdgrpSudoCommands() []string {
 // GetBsdgrpSudoCommandsOk returns a tuple with the BsdgrpSudoCommands field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserGroup) GetBsdgrpSudoCommandsOk() ([]string, bool) {
-	if o == nil || isNil(o.BsdgrpSudoCommands) {
+	if o == nil || IsNil(o.BsdgrpSudoCommands) {
 		return nil, false
 	}
 	return o.BsdgrpSudoCommands, true
@@ -258,7 +261,7 @@ func (o *UserGroup) GetBsdgrpSudoCommandsOk() ([]string, bool) {
 
 // HasBsdgrpSudoCommands returns a boolean if a field has been set.
 func (o *UserGroup) HasBsdgrpSudoCommands() bool {
-	if o != nil && !isNil(o.BsdgrpSudoCommands) {
+	if o != nil && !IsNil(o.BsdgrpSudoCommands) {
 		return true
 	}
 
@@ -272,7 +275,7 @@ func (o *UserGroup) SetBsdgrpSudoCommands(v []string) {
 
 // GetBsdgrpSmb returns the BsdgrpSmb field value if set, zero value otherwise.
 func (o *UserGroup) GetBsdgrpSmb() bool {
-	if o == nil || isNil(o.BsdgrpSmb) {
+	if o == nil || IsNil(o.BsdgrpSmb) {
 		var ret bool
 		return ret
 	}
@@ -282,7 +285,7 @@ func (o *UserGroup) GetBsdgrpSmb() bool {
 // GetBsdgrpSmbOk returns a tuple with the BsdgrpSmb field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *UserGroup) GetBsdgrpSmbOk() (*bool, bool) {
-	if o == nil || isNil(o.BsdgrpSmb) {
+	if o == nil || IsNil(o.BsdgrpSmb) {
 		return nil, false
 	}
 	return o.BsdgrpSmb, true
@@ -290,7 +293,7 @@ func (o *UserGroup) GetBsdgrpSmbOk() (*bool, bool) {
 
 // HasBsdgrpSmb returns a boolean if a field has been set.
 func (o *UserGroup) HasBsdgrpSmb() bool {
-	if o != nil && !isNil(o.BsdgrpSmb) {
+	if o != nil && !IsNil(o.BsdgrpSmb) {
 		return true
 	}
 
@@ -303,29 +306,37 @@ func (o *UserGroup) SetBsdgrpSmb(v bool) {
 }
 
 func (o UserGroup) MarshalJSON() ([]byte, error) {
+	toSerialize, err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o UserGroup) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.BsdgrpGid) {
+	if !IsNil(o.BsdgrpGid) {
 		toSerialize["bsdgrp_gid"] = o.BsdgrpGid
 	}
-	if !isNil(o.BsdgrpGroup) {
+	if !IsNil(o.BsdgrpGroup) {
 		toSerialize["bsdgrp_group"] = o.BsdgrpGroup
 	}
-	if !isNil(o.BsdgrpBuiltin) {
+	if !IsNil(o.BsdgrpBuiltin) {
 		toSerialize["bsdgrp_builtin"] = o.BsdgrpBuiltin
 	}
-	if !isNil(o.BsdgrpSudo) {
+	if !IsNil(o.BsdgrpSudo) {
 		toSerialize["bsdgrp_sudo"] = o.BsdgrpSudo
 	}
-	if !isNil(o.BsdgrpSudoNopasswd) {
+	if !IsNil(o.BsdgrpSudoNopasswd) {
 		toSerialize["bsdgrp_sudo_nopasswd"] = o.BsdgrpSudoNopasswd
 	}
-	if !isNil(o.BsdgrpSudoCommands) {
+	if !IsNil(o.BsdgrpSudoCommands) {
 		toSerialize["bsdgrp_sudo_commands"] = o.BsdgrpSudoCommands
 	}
-	if !isNil(o.BsdgrpSmb) {
+	if !IsNil(o.BsdgrpSmb) {
 		toSerialize["bsdgrp_smb"] = o.BsdgrpSmb
 	}
 
@@ -333,7 +344,7 @@ func (o UserGroup) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 func (o *UserGroup) UnmarshalJSON(bytes []byte) (err error) {

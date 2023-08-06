@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the NetworkSummaryIpsValue type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &NetworkSummaryIpsValue{}
+
 // NetworkSummaryIpsValue struct for NetworkSummaryIpsValue
 type NetworkSummaryIpsValue struct {
 	IPV4                 []string `json:"IPV4,omitempty"`
@@ -42,7 +45,7 @@ func NewNetworkSummaryIpsValueWithDefaults() *NetworkSummaryIpsValue {
 
 // GetIPV4 returns the IPV4 field value if set, zero value otherwise.
 func (o *NetworkSummaryIpsValue) GetIPV4() []string {
-	if o == nil || isNil(o.IPV4) {
+	if o == nil || IsNil(o.IPV4) {
 		var ret []string
 		return ret
 	}
@@ -52,7 +55,7 @@ func (o *NetworkSummaryIpsValue) GetIPV4() []string {
 // GetIPV4Ok returns a tuple with the IPV4 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkSummaryIpsValue) GetIPV4Ok() ([]string, bool) {
-	if o == nil || isNil(o.IPV4) {
+	if o == nil || IsNil(o.IPV4) {
 		return nil, false
 	}
 	return o.IPV4, true
@@ -60,7 +63,7 @@ func (o *NetworkSummaryIpsValue) GetIPV4Ok() ([]string, bool) {
 
 // HasIPV4 returns a boolean if a field has been set.
 func (o *NetworkSummaryIpsValue) HasIPV4() bool {
-	if o != nil && !isNil(o.IPV4) {
+	if o != nil && !IsNil(o.IPV4) {
 		return true
 	}
 
@@ -74,7 +77,7 @@ func (o *NetworkSummaryIpsValue) SetIPV4(v []string) {
 
 // GetIPV6 returns the IPV6 field value if set, zero value otherwise.
 func (o *NetworkSummaryIpsValue) GetIPV6() []string {
-	if o == nil || isNil(o.IPV6) {
+	if o == nil || IsNil(o.IPV6) {
 		var ret []string
 		return ret
 	}
@@ -84,7 +87,7 @@ func (o *NetworkSummaryIpsValue) GetIPV6() []string {
 // GetIPV6Ok returns a tuple with the IPV6 field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkSummaryIpsValue) GetIPV6Ok() ([]string, bool) {
-	if o == nil || isNil(o.IPV6) {
+	if o == nil || IsNil(o.IPV6) {
 		return nil, false
 	}
 	return o.IPV6, true
@@ -92,7 +95,7 @@ func (o *NetworkSummaryIpsValue) GetIPV6Ok() ([]string, bool) {
 
 // HasIPV6 returns a boolean if a field has been set.
 func (o *NetworkSummaryIpsValue) HasIPV6() bool {
-	if o != nil && !isNil(o.IPV6) {
+	if o != nil && !IsNil(o.IPV6) {
 		return true
 	}
 
@@ -105,11 +108,19 @@ func (o *NetworkSummaryIpsValue) SetIPV6(v []string) {
 }
 
 func (o NetworkSummaryIpsValue) MarshalJSON() ([]byte, error) {
+	toSerialize, err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o NetworkSummaryIpsValue) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.IPV4) {
+	if !IsNil(o.IPV4) {
 		toSerialize["IPV4"] = o.IPV4
 	}
-	if !isNil(o.IPV6) {
+	if !IsNil(o.IPV6) {
 		toSerialize["IPV6"] = o.IPV6
 	}
 
@@ -117,7 +128,7 @@ func (o NetworkSummaryIpsValue) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 func (o *NetworkSummaryIpsValue) UnmarshalJSON(bytes []byte) (err error) {

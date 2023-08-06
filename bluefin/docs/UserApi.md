@@ -30,7 +30,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/dariusbakunas/truenas-go-sdk/bluefin"
 )
 
 func main() {
@@ -96,7 +96,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/dariusbakunas/truenas-go-sdk/bluefin"
 )
 
 func main() {
@@ -105,7 +105,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserApi.DeleteUser(context.Background(), id).DeleteUserParams(deleteUserParams).Execute()
+    r, err := apiClient.UserApi.DeleteUser(context.Background(), id).DeleteUserParams(deleteUserParams).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.DeleteUser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -166,7 +166,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/dariusbakunas/truenas-go-sdk/bluefin"
 )
 
 func main() {
@@ -244,7 +244,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/dariusbakunas/truenas-go-sdk/bluefin"
 )
 
 func main() {
@@ -310,7 +310,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/dariusbakunas/truenas-go-sdk/bluefin"
 )
 
 func main() {
@@ -382,7 +382,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/dariusbakunas/truenas-go-sdk/bluefin"
 )
 
 func main() {

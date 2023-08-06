@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CompositeValue type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CompositeValue{}
+
 // CompositeValue struct for CompositeValue
 type CompositeValue struct {
 	Value                *string `json:"value,omitempty"`
@@ -44,7 +47,7 @@ func NewCompositeValueWithDefaults() *CompositeValue {
 
 // GetValue returns the Value field value if set, zero value otherwise.
 func (o *CompositeValue) GetValue() string {
-	if o == nil || isNil(o.Value) {
+	if o == nil || IsNil(o.Value) {
 		var ret string
 		return ret
 	}
@@ -54,7 +57,7 @@ func (o *CompositeValue) GetValue() string {
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CompositeValue) GetValueOk() (*string, bool) {
-	if o == nil || isNil(o.Value) {
+	if o == nil || IsNil(o.Value) {
 		return nil, false
 	}
 	return o.Value, true
@@ -62,7 +65,7 @@ func (o *CompositeValue) GetValueOk() (*string, bool) {
 
 // HasValue returns a boolean if a field has been set.
 func (o *CompositeValue) HasValue() bool {
-	if o != nil && !isNil(o.Value) {
+	if o != nil && !IsNil(o.Value) {
 		return true
 	}
 
@@ -100,7 +103,7 @@ func (o *CompositeValue) SetRawvalue(v string) {
 
 // GetSource returns the Source field value if set, zero value otherwise.
 func (o *CompositeValue) GetSource() string {
-	if o == nil || isNil(o.Source) {
+	if o == nil || IsNil(o.Source) {
 		var ret string
 		return ret
 	}
@@ -110,7 +113,7 @@ func (o *CompositeValue) GetSource() string {
 // GetSourceOk returns a tuple with the Source field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CompositeValue) GetSourceOk() (*string, bool) {
-	if o == nil || isNil(o.Source) {
+	if o == nil || IsNil(o.Source) {
 		return nil, false
 	}
 	return o.Source, true
@@ -118,7 +121,7 @@ func (o *CompositeValue) GetSourceOk() (*string, bool) {
 
 // HasSource returns a boolean if a field has been set.
 func (o *CompositeValue) HasSource() bool {
-	if o != nil && !isNil(o.Source) {
+	if o != nil && !IsNil(o.Source) {
 		return true
 	}
 
@@ -131,14 +134,20 @@ func (o *CompositeValue) SetSource(v string) {
 }
 
 func (o CompositeValue) MarshalJSON() ([]byte, error) {
+	toSerialize, err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CompositeValue) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Value) {
+	if !IsNil(o.Value) {
 		toSerialize["value"] = o.Value
 	}
-	if true {
-		toSerialize["rawvalue"] = o.Rawvalue
-	}
-	if !isNil(o.Source) {
+	toSerialize["rawvalue"] = o.Rawvalue
+	if !IsNil(o.Source) {
 		toSerialize["source"] = o.Source
 	}
 
@@ -146,7 +155,7 @@ func (o CompositeValue) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 func (o *CompositeValue) UnmarshalJSON(bytes []byte) (err error) {

@@ -29,7 +29,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/dariusbakunas/truenas-go-sdk/bluefin"
 )
 
 func main() {
@@ -95,7 +95,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/dariusbakunas/truenas-go-sdk/bluefin"
 )
 
 func main() {
@@ -104,7 +104,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupApi.DeleteGroup(context.Background(), id).DeleteGroupParams(deleteGroupParams).Execute()
+    r, err := apiClient.GroupApi.DeleteGroup(context.Background(), id).DeleteGroupParams(deleteGroupParams).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupApi.DeleteGroup``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -165,7 +165,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/dariusbakunas/truenas-go-sdk/bluefin"
 )
 
 func main() {
@@ -243,7 +243,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/dariusbakunas/truenas-go-sdk/bluefin"
 )
 
 func main() {
@@ -254,7 +254,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupApi.ListGroups(context.Background()).Limit(limit).Offset(offset).Count(count).Sort(sort).Execute()
+    r, err := apiClient.GroupApi.ListGroups(context.Background()).Limit(limit).Offset(offset).Count(count).Sort(sort).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupApi.ListGroups``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -313,7 +313,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/dariusbakunas/truenas-go-sdk/bluefin"
 )
 
 func main() {

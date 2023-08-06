@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the ShareSMB type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &ShareSMB{}
+
 // ShareSMB struct for ShareSMB
 type ShareSMB struct {
 	Id                   int32    `json:"id"`
@@ -115,7 +118,7 @@ func (o *ShareSMB) SetPath(v string) {
 
 // GetPathSuffix returns the PathSuffix field value if set, zero value otherwise.
 func (o *ShareSMB) GetPathSuffix() string {
-	if o == nil || isNil(o.PathSuffix) {
+	if o == nil || IsNil(o.PathSuffix) {
 		var ret string
 		return ret
 	}
@@ -125,7 +128,7 @@ func (o *ShareSMB) GetPathSuffix() string {
 // GetPathSuffixOk returns a tuple with the PathSuffix field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShareSMB) GetPathSuffixOk() (*string, bool) {
-	if o == nil || isNil(o.PathSuffix) {
+	if o == nil || IsNil(o.PathSuffix) {
 		return nil, false
 	}
 	return o.PathSuffix, true
@@ -133,7 +136,7 @@ func (o *ShareSMB) GetPathSuffixOk() (*string, bool) {
 
 // HasPathSuffix returns a boolean if a field has been set.
 func (o *ShareSMB) HasPathSuffix() bool {
-	if o != nil && !isNil(o.PathSuffix) {
+	if o != nil && !IsNil(o.PathSuffix) {
 		return true
 	}
 
@@ -147,7 +150,7 @@ func (o *ShareSMB) SetPathSuffix(v string) {
 
 // GetPurpose returns the Purpose field value if set, zero value otherwise.
 func (o *ShareSMB) GetPurpose() string {
-	if o == nil || isNil(o.Purpose) {
+	if o == nil || IsNil(o.Purpose) {
 		var ret string
 		return ret
 	}
@@ -157,7 +160,7 @@ func (o *ShareSMB) GetPurpose() string {
 // GetPurposeOk returns a tuple with the Purpose field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShareSMB) GetPurposeOk() (*string, bool) {
-	if o == nil || isNil(o.Purpose) {
+	if o == nil || IsNil(o.Purpose) {
 		return nil, false
 	}
 	return o.Purpose, true
@@ -165,7 +168,7 @@ func (o *ShareSMB) GetPurposeOk() (*string, bool) {
 
 // HasPurpose returns a boolean if a field has been set.
 func (o *ShareSMB) HasPurpose() bool {
-	if o != nil && !isNil(o.Purpose) {
+	if o != nil && !IsNil(o.Purpose) {
 		return true
 	}
 
@@ -179,7 +182,7 @@ func (o *ShareSMB) SetPurpose(v string) {
 
 // GetHome returns the Home field value if set, zero value otherwise.
 func (o *ShareSMB) GetHome() bool {
-	if o == nil || isNil(o.Home) {
+	if o == nil || IsNil(o.Home) {
 		var ret bool
 		return ret
 	}
@@ -189,7 +192,7 @@ func (o *ShareSMB) GetHome() bool {
 // GetHomeOk returns a tuple with the Home field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShareSMB) GetHomeOk() (*bool, bool) {
-	if o == nil || isNil(o.Home) {
+	if o == nil || IsNil(o.Home) {
 		return nil, false
 	}
 	return o.Home, true
@@ -197,7 +200,7 @@ func (o *ShareSMB) GetHomeOk() (*bool, bool) {
 
 // HasHome returns a boolean if a field has been set.
 func (o *ShareSMB) HasHome() bool {
-	if o != nil && !isNil(o.Home) {
+	if o != nil && !IsNil(o.Home) {
 		return true
 	}
 
@@ -211,7 +214,7 @@ func (o *ShareSMB) SetHome(v bool) {
 
 // GetTimemachine returns the Timemachine field value if set, zero value otherwise.
 func (o *ShareSMB) GetTimemachine() bool {
-	if o == nil || isNil(o.Timemachine) {
+	if o == nil || IsNil(o.Timemachine) {
 		var ret bool
 		return ret
 	}
@@ -221,7 +224,7 @@ func (o *ShareSMB) GetTimemachine() bool {
 // GetTimemachineOk returns a tuple with the Timemachine field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShareSMB) GetTimemachineOk() (*bool, bool) {
-	if o == nil || isNil(o.Timemachine) {
+	if o == nil || IsNil(o.Timemachine) {
 		return nil, false
 	}
 	return o.Timemachine, true
@@ -229,7 +232,7 @@ func (o *ShareSMB) GetTimemachineOk() (*bool, bool) {
 
 // HasTimemachine returns a boolean if a field has been set.
 func (o *ShareSMB) HasTimemachine() bool {
-	if o != nil && !isNil(o.Timemachine) {
+	if o != nil && !IsNil(o.Timemachine) {
 		return true
 	}
 
@@ -243,7 +246,7 @@ func (o *ShareSMB) SetTimemachine(v bool) {
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ShareSMB) GetName() string {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
@@ -253,7 +256,7 @@ func (o *ShareSMB) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShareSMB) GetNameOk() (*string, bool) {
-	if o == nil || isNil(o.Name) {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
 	return o.Name, true
@@ -261,7 +264,7 @@ func (o *ShareSMB) GetNameOk() (*string, bool) {
 
 // HasName returns a boolean if a field has been set.
 func (o *ShareSMB) HasName() bool {
-	if o != nil && !isNil(o.Name) {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
@@ -275,7 +278,7 @@ func (o *ShareSMB) SetName(v string) {
 
 // GetComment returns the Comment field value if set, zero value otherwise.
 func (o *ShareSMB) GetComment() string {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		var ret string
 		return ret
 	}
@@ -285,7 +288,7 @@ func (o *ShareSMB) GetComment() string {
 // GetCommentOk returns a tuple with the Comment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShareSMB) GetCommentOk() (*string, bool) {
-	if o == nil || isNil(o.Comment) {
+	if o == nil || IsNil(o.Comment) {
 		return nil, false
 	}
 	return o.Comment, true
@@ -293,7 +296,7 @@ func (o *ShareSMB) GetCommentOk() (*string, bool) {
 
 // HasComment returns a boolean if a field has been set.
 func (o *ShareSMB) HasComment() bool {
-	if o != nil && !isNil(o.Comment) {
+	if o != nil && !IsNil(o.Comment) {
 		return true
 	}
 
@@ -307,7 +310,7 @@ func (o *ShareSMB) SetComment(v string) {
 
 // GetRo returns the Ro field value if set, zero value otherwise.
 func (o *ShareSMB) GetRo() bool {
-	if o == nil || isNil(o.Ro) {
+	if o == nil || IsNil(o.Ro) {
 		var ret bool
 		return ret
 	}
@@ -317,7 +320,7 @@ func (o *ShareSMB) GetRo() bool {
 // GetRoOk returns a tuple with the Ro field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShareSMB) GetRoOk() (*bool, bool) {
-	if o == nil || isNil(o.Ro) {
+	if o == nil || IsNil(o.Ro) {
 		return nil, false
 	}
 	return o.Ro, true
@@ -325,7 +328,7 @@ func (o *ShareSMB) GetRoOk() (*bool, bool) {
 
 // HasRo returns a boolean if a field has been set.
 func (o *ShareSMB) HasRo() bool {
-	if o != nil && !isNil(o.Ro) {
+	if o != nil && !IsNil(o.Ro) {
 		return true
 	}
 
@@ -339,7 +342,7 @@ func (o *ShareSMB) SetRo(v bool) {
 
 // GetBrowsable returns the Browsable field value if set, zero value otherwise.
 func (o *ShareSMB) GetBrowsable() bool {
-	if o == nil || isNil(o.Browsable) {
+	if o == nil || IsNil(o.Browsable) {
 		var ret bool
 		return ret
 	}
@@ -349,7 +352,7 @@ func (o *ShareSMB) GetBrowsable() bool {
 // GetBrowsableOk returns a tuple with the Browsable field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShareSMB) GetBrowsableOk() (*bool, bool) {
-	if o == nil || isNil(o.Browsable) {
+	if o == nil || IsNil(o.Browsable) {
 		return nil, false
 	}
 	return o.Browsable, true
@@ -357,7 +360,7 @@ func (o *ShareSMB) GetBrowsableOk() (*bool, bool) {
 
 // HasBrowsable returns a boolean if a field has been set.
 func (o *ShareSMB) HasBrowsable() bool {
-	if o != nil && !isNil(o.Browsable) {
+	if o != nil && !IsNil(o.Browsable) {
 		return true
 	}
 
@@ -371,7 +374,7 @@ func (o *ShareSMB) SetBrowsable(v bool) {
 
 // GetRecyclebin returns the Recyclebin field value if set, zero value otherwise.
 func (o *ShareSMB) GetRecyclebin() bool {
-	if o == nil || isNil(o.Recyclebin) {
+	if o == nil || IsNil(o.Recyclebin) {
 		var ret bool
 		return ret
 	}
@@ -381,7 +384,7 @@ func (o *ShareSMB) GetRecyclebin() bool {
 // GetRecyclebinOk returns a tuple with the Recyclebin field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShareSMB) GetRecyclebinOk() (*bool, bool) {
-	if o == nil || isNil(o.Recyclebin) {
+	if o == nil || IsNil(o.Recyclebin) {
 		return nil, false
 	}
 	return o.Recyclebin, true
@@ -389,7 +392,7 @@ func (o *ShareSMB) GetRecyclebinOk() (*bool, bool) {
 
 // HasRecyclebin returns a boolean if a field has been set.
 func (o *ShareSMB) HasRecyclebin() bool {
-	if o != nil && !isNil(o.Recyclebin) {
+	if o != nil && !IsNil(o.Recyclebin) {
 		return true
 	}
 
@@ -403,7 +406,7 @@ func (o *ShareSMB) SetRecyclebin(v bool) {
 
 // GetShadowcopy returns the Shadowcopy field value if set, zero value otherwise.
 func (o *ShareSMB) GetShadowcopy() bool {
-	if o == nil || isNil(o.Shadowcopy) {
+	if o == nil || IsNil(o.Shadowcopy) {
 		var ret bool
 		return ret
 	}
@@ -413,7 +416,7 @@ func (o *ShareSMB) GetShadowcopy() bool {
 // GetShadowcopyOk returns a tuple with the Shadowcopy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShareSMB) GetShadowcopyOk() (*bool, bool) {
-	if o == nil || isNil(o.Shadowcopy) {
+	if o == nil || IsNil(o.Shadowcopy) {
 		return nil, false
 	}
 	return o.Shadowcopy, true
@@ -421,7 +424,7 @@ func (o *ShareSMB) GetShadowcopyOk() (*bool, bool) {
 
 // HasShadowcopy returns a boolean if a field has been set.
 func (o *ShareSMB) HasShadowcopy() bool {
-	if o != nil && !isNil(o.Shadowcopy) {
+	if o != nil && !IsNil(o.Shadowcopy) {
 		return true
 	}
 
@@ -435,7 +438,7 @@ func (o *ShareSMB) SetShadowcopy(v bool) {
 
 // GetGuestok returns the Guestok field value if set, zero value otherwise.
 func (o *ShareSMB) GetGuestok() bool {
-	if o == nil || isNil(o.Guestok) {
+	if o == nil || IsNil(o.Guestok) {
 		var ret bool
 		return ret
 	}
@@ -445,7 +448,7 @@ func (o *ShareSMB) GetGuestok() bool {
 // GetGuestokOk returns a tuple with the Guestok field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShareSMB) GetGuestokOk() (*bool, bool) {
-	if o == nil || isNil(o.Guestok) {
+	if o == nil || IsNil(o.Guestok) {
 		return nil, false
 	}
 	return o.Guestok, true
@@ -453,7 +456,7 @@ func (o *ShareSMB) GetGuestokOk() (*bool, bool) {
 
 // HasGuestok returns a boolean if a field has been set.
 func (o *ShareSMB) HasGuestok() bool {
-	if o != nil && !isNil(o.Guestok) {
+	if o != nil && !IsNil(o.Guestok) {
 		return true
 	}
 
@@ -467,7 +470,7 @@ func (o *ShareSMB) SetGuestok(v bool) {
 
 // GetAbe returns the Abe field value if set, zero value otherwise.
 func (o *ShareSMB) GetAbe() bool {
-	if o == nil || isNil(o.Abe) {
+	if o == nil || IsNil(o.Abe) {
 		var ret bool
 		return ret
 	}
@@ -477,7 +480,7 @@ func (o *ShareSMB) GetAbe() bool {
 // GetAbeOk returns a tuple with the Abe field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShareSMB) GetAbeOk() (*bool, bool) {
-	if o == nil || isNil(o.Abe) {
+	if o == nil || IsNil(o.Abe) {
 		return nil, false
 	}
 	return o.Abe, true
@@ -485,7 +488,7 @@ func (o *ShareSMB) GetAbeOk() (*bool, bool) {
 
 // HasAbe returns a boolean if a field has been set.
 func (o *ShareSMB) HasAbe() bool {
-	if o != nil && !isNil(o.Abe) {
+	if o != nil && !IsNil(o.Abe) {
 		return true
 	}
 
@@ -499,7 +502,7 @@ func (o *ShareSMB) SetAbe(v bool) {
 
 // GetHostsallow returns the Hostsallow field value if set, zero value otherwise.
 func (o *ShareSMB) GetHostsallow() []string {
-	if o == nil || isNil(o.Hostsallow) {
+	if o == nil || IsNil(o.Hostsallow) {
 		var ret []string
 		return ret
 	}
@@ -509,7 +512,7 @@ func (o *ShareSMB) GetHostsallow() []string {
 // GetHostsallowOk returns a tuple with the Hostsallow field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShareSMB) GetHostsallowOk() ([]string, bool) {
-	if o == nil || isNil(o.Hostsallow) {
+	if o == nil || IsNil(o.Hostsallow) {
 		return nil, false
 	}
 	return o.Hostsallow, true
@@ -517,7 +520,7 @@ func (o *ShareSMB) GetHostsallowOk() ([]string, bool) {
 
 // HasHostsallow returns a boolean if a field has been set.
 func (o *ShareSMB) HasHostsallow() bool {
-	if o != nil && !isNil(o.Hostsallow) {
+	if o != nil && !IsNil(o.Hostsallow) {
 		return true
 	}
 
@@ -531,7 +534,7 @@ func (o *ShareSMB) SetHostsallow(v []string) {
 
 // GetHostsdeny returns the Hostsdeny field value if set, zero value otherwise.
 func (o *ShareSMB) GetHostsdeny() []string {
-	if o == nil || isNil(o.Hostsdeny) {
+	if o == nil || IsNil(o.Hostsdeny) {
 		var ret []string
 		return ret
 	}
@@ -541,7 +544,7 @@ func (o *ShareSMB) GetHostsdeny() []string {
 // GetHostsdenyOk returns a tuple with the Hostsdeny field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShareSMB) GetHostsdenyOk() ([]string, bool) {
-	if o == nil || isNil(o.Hostsdeny) {
+	if o == nil || IsNil(o.Hostsdeny) {
 		return nil, false
 	}
 	return o.Hostsdeny, true
@@ -549,7 +552,7 @@ func (o *ShareSMB) GetHostsdenyOk() ([]string, bool) {
 
 // HasHostsdeny returns a boolean if a field has been set.
 func (o *ShareSMB) HasHostsdeny() bool {
-	if o != nil && !isNil(o.Hostsdeny) {
+	if o != nil && !IsNil(o.Hostsdeny) {
 		return true
 	}
 
@@ -563,7 +566,7 @@ func (o *ShareSMB) SetHostsdeny(v []string) {
 
 // GetAaplNameMangling returns the AaplNameMangling field value if set, zero value otherwise.
 func (o *ShareSMB) GetAaplNameMangling() bool {
-	if o == nil || isNil(o.AaplNameMangling) {
+	if o == nil || IsNil(o.AaplNameMangling) {
 		var ret bool
 		return ret
 	}
@@ -573,7 +576,7 @@ func (o *ShareSMB) GetAaplNameMangling() bool {
 // GetAaplNameManglingOk returns a tuple with the AaplNameMangling field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShareSMB) GetAaplNameManglingOk() (*bool, bool) {
-	if o == nil || isNil(o.AaplNameMangling) {
+	if o == nil || IsNil(o.AaplNameMangling) {
 		return nil, false
 	}
 	return o.AaplNameMangling, true
@@ -581,7 +584,7 @@ func (o *ShareSMB) GetAaplNameManglingOk() (*bool, bool) {
 
 // HasAaplNameMangling returns a boolean if a field has been set.
 func (o *ShareSMB) HasAaplNameMangling() bool {
-	if o != nil && !isNil(o.AaplNameMangling) {
+	if o != nil && !IsNil(o.AaplNameMangling) {
 		return true
 	}
 
@@ -595,7 +598,7 @@ func (o *ShareSMB) SetAaplNameMangling(v bool) {
 
 // GetAcl returns the Acl field value if set, zero value otherwise.
 func (o *ShareSMB) GetAcl() bool {
-	if o == nil || isNil(o.Acl) {
+	if o == nil || IsNil(o.Acl) {
 		var ret bool
 		return ret
 	}
@@ -605,7 +608,7 @@ func (o *ShareSMB) GetAcl() bool {
 // GetAclOk returns a tuple with the Acl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShareSMB) GetAclOk() (*bool, bool) {
-	if o == nil || isNil(o.Acl) {
+	if o == nil || IsNil(o.Acl) {
 		return nil, false
 	}
 	return o.Acl, true
@@ -613,7 +616,7 @@ func (o *ShareSMB) GetAclOk() (*bool, bool) {
 
 // HasAcl returns a boolean if a field has been set.
 func (o *ShareSMB) HasAcl() bool {
-	if o != nil && !isNil(o.Acl) {
+	if o != nil && !IsNil(o.Acl) {
 		return true
 	}
 
@@ -627,7 +630,7 @@ func (o *ShareSMB) SetAcl(v bool) {
 
 // GetDurablehandle returns the Durablehandle field value if set, zero value otherwise.
 func (o *ShareSMB) GetDurablehandle() bool {
-	if o == nil || isNil(o.Durablehandle) {
+	if o == nil || IsNil(o.Durablehandle) {
 		var ret bool
 		return ret
 	}
@@ -637,7 +640,7 @@ func (o *ShareSMB) GetDurablehandle() bool {
 // GetDurablehandleOk returns a tuple with the Durablehandle field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShareSMB) GetDurablehandleOk() (*bool, bool) {
-	if o == nil || isNil(o.Durablehandle) {
+	if o == nil || IsNil(o.Durablehandle) {
 		return nil, false
 	}
 	return o.Durablehandle, true
@@ -645,7 +648,7 @@ func (o *ShareSMB) GetDurablehandleOk() (*bool, bool) {
 
 // HasDurablehandle returns a boolean if a field has been set.
 func (o *ShareSMB) HasDurablehandle() bool {
-	if o != nil && !isNil(o.Durablehandle) {
+	if o != nil && !IsNil(o.Durablehandle) {
 		return true
 	}
 
@@ -659,7 +662,7 @@ func (o *ShareSMB) SetDurablehandle(v bool) {
 
 // GetStreams returns the Streams field value if set, zero value otherwise.
 func (o *ShareSMB) GetStreams() bool {
-	if o == nil || isNil(o.Streams) {
+	if o == nil || IsNil(o.Streams) {
 		var ret bool
 		return ret
 	}
@@ -669,7 +672,7 @@ func (o *ShareSMB) GetStreams() bool {
 // GetStreamsOk returns a tuple with the Streams field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShareSMB) GetStreamsOk() (*bool, bool) {
-	if o == nil || isNil(o.Streams) {
+	if o == nil || IsNil(o.Streams) {
 		return nil, false
 	}
 	return o.Streams, true
@@ -677,7 +680,7 @@ func (o *ShareSMB) GetStreamsOk() (*bool, bool) {
 
 // HasStreams returns a boolean if a field has been set.
 func (o *ShareSMB) HasStreams() bool {
-	if o != nil && !isNil(o.Streams) {
+	if o != nil && !IsNil(o.Streams) {
 		return true
 	}
 
@@ -691,7 +694,7 @@ func (o *ShareSMB) SetStreams(v bool) {
 
 // GetFsrvp returns the Fsrvp field value if set, zero value otherwise.
 func (o *ShareSMB) GetFsrvp() bool {
-	if o == nil || isNil(o.Fsrvp) {
+	if o == nil || IsNil(o.Fsrvp) {
 		var ret bool
 		return ret
 	}
@@ -701,7 +704,7 @@ func (o *ShareSMB) GetFsrvp() bool {
 // GetFsrvpOk returns a tuple with the Fsrvp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShareSMB) GetFsrvpOk() (*bool, bool) {
-	if o == nil || isNil(o.Fsrvp) {
+	if o == nil || IsNil(o.Fsrvp) {
 		return nil, false
 	}
 	return o.Fsrvp, true
@@ -709,7 +712,7 @@ func (o *ShareSMB) GetFsrvpOk() (*bool, bool) {
 
 // HasFsrvp returns a boolean if a field has been set.
 func (o *ShareSMB) HasFsrvp() bool {
-	if o != nil && !isNil(o.Fsrvp) {
+	if o != nil && !IsNil(o.Fsrvp) {
 		return true
 	}
 
@@ -723,7 +726,7 @@ func (o *ShareSMB) SetFsrvp(v bool) {
 
 // GetAuxsmbconf returns the Auxsmbconf field value if set, zero value otherwise.
 func (o *ShareSMB) GetAuxsmbconf() string {
-	if o == nil || isNil(o.Auxsmbconf) {
+	if o == nil || IsNil(o.Auxsmbconf) {
 		var ret string
 		return ret
 	}
@@ -733,7 +736,7 @@ func (o *ShareSMB) GetAuxsmbconf() string {
 // GetAuxsmbconfOk returns a tuple with the Auxsmbconf field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShareSMB) GetAuxsmbconfOk() (*string, bool) {
-	if o == nil || isNil(o.Auxsmbconf) {
+	if o == nil || IsNil(o.Auxsmbconf) {
 		return nil, false
 	}
 	return o.Auxsmbconf, true
@@ -741,7 +744,7 @@ func (o *ShareSMB) GetAuxsmbconfOk() (*string, bool) {
 
 // HasAuxsmbconf returns a boolean if a field has been set.
 func (o *ShareSMB) HasAuxsmbconf() bool {
-	if o != nil && !isNil(o.Auxsmbconf) {
+	if o != nil && !IsNil(o.Auxsmbconf) {
 		return true
 	}
 
@@ -755,7 +758,7 @@ func (o *ShareSMB) SetAuxsmbconf(v string) {
 
 // GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *ShareSMB) GetEnabled() bool {
-	if o == nil || isNil(o.Enabled) {
+	if o == nil || IsNil(o.Enabled) {
 		var ret bool
 		return ret
 	}
@@ -765,7 +768,7 @@ func (o *ShareSMB) GetEnabled() bool {
 // GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShareSMB) GetEnabledOk() (*bool, bool) {
-	if o == nil || isNil(o.Enabled) {
+	if o == nil || IsNil(o.Enabled) {
 		return nil, false
 	}
 	return o.Enabled, true
@@ -773,7 +776,7 @@ func (o *ShareSMB) GetEnabledOk() (*bool, bool) {
 
 // HasEnabled returns a boolean if a field has been set.
 func (o *ShareSMB) HasEnabled() bool {
-	if o != nil && !isNil(o.Enabled) {
+	if o != nil && !IsNil(o.Enabled) {
 		return true
 	}
 
@@ -787,7 +790,7 @@ func (o *ShareSMB) SetEnabled(v bool) {
 
 // GetLocked returns the Locked field value if set, zero value otherwise.
 func (o *ShareSMB) GetLocked() bool {
-	if o == nil || isNil(o.Locked) {
+	if o == nil || IsNil(o.Locked) {
 		var ret bool
 		return ret
 	}
@@ -797,7 +800,7 @@ func (o *ShareSMB) GetLocked() bool {
 // GetLockedOk returns a tuple with the Locked field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShareSMB) GetLockedOk() (*bool, bool) {
-	if o == nil || isNil(o.Locked) {
+	if o == nil || IsNil(o.Locked) {
 		return nil, false
 	}
 	return o.Locked, true
@@ -805,7 +808,7 @@ func (o *ShareSMB) GetLockedOk() (*bool, bool) {
 
 // HasLocked returns a boolean if a field has been set.
 func (o *ShareSMB) HasLocked() bool {
-	if o != nil && !isNil(o.Locked) {
+	if o != nil && !IsNil(o.Locked) {
 		return true
 	}
 
@@ -819,7 +822,7 @@ func (o *ShareSMB) SetLocked(v bool) {
 
 // GetVuid returns the Vuid field value if set, zero value otherwise.
 func (o *ShareSMB) GetVuid() string {
-	if o == nil || isNil(o.Vuid) {
+	if o == nil || IsNil(o.Vuid) {
 		var ret string
 		return ret
 	}
@@ -829,7 +832,7 @@ func (o *ShareSMB) GetVuid() string {
 // GetVuidOk returns a tuple with the Vuid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ShareSMB) GetVuidOk() (*string, bool) {
-	if o == nil || isNil(o.Vuid) {
+	if o == nil || IsNil(o.Vuid) {
 		return nil, false
 	}
 	return o.Vuid, true
@@ -837,7 +840,7 @@ func (o *ShareSMB) GetVuidOk() (*string, bool) {
 
 // HasVuid returns a boolean if a field has been set.
 func (o *ShareSMB) HasVuid() bool {
-	if o != nil && !isNil(o.Vuid) {
+	if o != nil && !IsNil(o.Vuid) {
 		return true
 	}
 
@@ -850,80 +853,84 @@ func (o *ShareSMB) SetVuid(v string) {
 }
 
 func (o ShareSMB) MarshalJSON() ([]byte, error) {
+	toSerialize, err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o ShareSMB) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["id"] = o.Id
-	}
-	if true {
-		toSerialize["path"] = o.Path
-	}
-	if !isNil(o.PathSuffix) {
+	toSerialize["id"] = o.Id
+	toSerialize["path"] = o.Path
+	if !IsNil(o.PathSuffix) {
 		toSerialize["path_suffix"] = o.PathSuffix
 	}
-	if !isNil(o.Purpose) {
+	if !IsNil(o.Purpose) {
 		toSerialize["purpose"] = o.Purpose
 	}
-	if !isNil(o.Home) {
+	if !IsNil(o.Home) {
 		toSerialize["home"] = o.Home
 	}
-	if !isNil(o.Timemachine) {
+	if !IsNil(o.Timemachine) {
 		toSerialize["timemachine"] = o.Timemachine
 	}
-	if !isNil(o.Name) {
+	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
-	if !isNil(o.Comment) {
+	if !IsNil(o.Comment) {
 		toSerialize["comment"] = o.Comment
 	}
-	if !isNil(o.Ro) {
+	if !IsNil(o.Ro) {
 		toSerialize["ro"] = o.Ro
 	}
-	if !isNil(o.Browsable) {
+	if !IsNil(o.Browsable) {
 		toSerialize["browsable"] = o.Browsable
 	}
-	if !isNil(o.Recyclebin) {
+	if !IsNil(o.Recyclebin) {
 		toSerialize["recyclebin"] = o.Recyclebin
 	}
-	if !isNil(o.Shadowcopy) {
+	if !IsNil(o.Shadowcopy) {
 		toSerialize["shadowcopy"] = o.Shadowcopy
 	}
-	if !isNil(o.Guestok) {
+	if !IsNil(o.Guestok) {
 		toSerialize["guestok"] = o.Guestok
 	}
-	if !isNil(o.Abe) {
+	if !IsNil(o.Abe) {
 		toSerialize["abe"] = o.Abe
 	}
-	if !isNil(o.Hostsallow) {
+	if !IsNil(o.Hostsallow) {
 		toSerialize["hostsallow"] = o.Hostsallow
 	}
-	if !isNil(o.Hostsdeny) {
+	if !IsNil(o.Hostsdeny) {
 		toSerialize["hostsdeny"] = o.Hostsdeny
 	}
-	if !isNil(o.AaplNameMangling) {
+	if !IsNil(o.AaplNameMangling) {
 		toSerialize["aapl_name_mangling"] = o.AaplNameMangling
 	}
-	if !isNil(o.Acl) {
+	if !IsNil(o.Acl) {
 		toSerialize["acl"] = o.Acl
 	}
-	if !isNil(o.Durablehandle) {
+	if !IsNil(o.Durablehandle) {
 		toSerialize["durablehandle"] = o.Durablehandle
 	}
-	if !isNil(o.Streams) {
+	if !IsNil(o.Streams) {
 		toSerialize["streams"] = o.Streams
 	}
-	if !isNil(o.Fsrvp) {
+	if !IsNil(o.Fsrvp) {
 		toSerialize["fsrvp"] = o.Fsrvp
 	}
-	if !isNil(o.Auxsmbconf) {
+	if !IsNil(o.Auxsmbconf) {
 		toSerialize["auxsmbconf"] = o.Auxsmbconf
 	}
-	if !isNil(o.Enabled) {
+	if !IsNil(o.Enabled) {
 		toSerialize["enabled"] = o.Enabled
 	}
-	if !isNil(o.Locked) {
+	if !IsNil(o.Locked) {
 		toSerialize["locked"] = o.Locked
 	}
-	if !isNil(o.Vuid) {
+	if !IsNil(o.Vuid) {
 		toSerialize["vuid"] = o.Vuid
 	}
 
@@ -931,7 +938,7 @@ func (o ShareSMB) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 func (o *ShareSMB) UnmarshalJSON(bytes []byte) (err error) {

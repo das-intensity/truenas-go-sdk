@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the NetworkConfigServiceAnnouncement type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &NetworkConfigServiceAnnouncement{}
+
 // NetworkConfigServiceAnnouncement struct for NetworkConfigServiceAnnouncement
 type NetworkConfigServiceAnnouncement struct {
 	Netbios              *bool `json:"netbios,omitempty"`
@@ -43,7 +46,7 @@ func NewNetworkConfigServiceAnnouncementWithDefaults() *NetworkConfigServiceAnno
 
 // GetNetbios returns the Netbios field value if set, zero value otherwise.
 func (o *NetworkConfigServiceAnnouncement) GetNetbios() bool {
-	if o == nil || isNil(o.Netbios) {
+	if o == nil || IsNil(o.Netbios) {
 		var ret bool
 		return ret
 	}
@@ -53,7 +56,7 @@ func (o *NetworkConfigServiceAnnouncement) GetNetbios() bool {
 // GetNetbiosOk returns a tuple with the Netbios field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkConfigServiceAnnouncement) GetNetbiosOk() (*bool, bool) {
-	if o == nil || isNil(o.Netbios) {
+	if o == nil || IsNil(o.Netbios) {
 		return nil, false
 	}
 	return o.Netbios, true
@@ -61,7 +64,7 @@ func (o *NetworkConfigServiceAnnouncement) GetNetbiosOk() (*bool, bool) {
 
 // HasNetbios returns a boolean if a field has been set.
 func (o *NetworkConfigServiceAnnouncement) HasNetbios() bool {
-	if o != nil && !isNil(o.Netbios) {
+	if o != nil && !IsNil(o.Netbios) {
 		return true
 	}
 
@@ -75,7 +78,7 @@ func (o *NetworkConfigServiceAnnouncement) SetNetbios(v bool) {
 
 // GetMdns returns the Mdns field value if set, zero value otherwise.
 func (o *NetworkConfigServiceAnnouncement) GetMdns() bool {
-	if o == nil || isNil(o.Mdns) {
+	if o == nil || IsNil(o.Mdns) {
 		var ret bool
 		return ret
 	}
@@ -85,7 +88,7 @@ func (o *NetworkConfigServiceAnnouncement) GetMdns() bool {
 // GetMdnsOk returns a tuple with the Mdns field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkConfigServiceAnnouncement) GetMdnsOk() (*bool, bool) {
-	if o == nil || isNil(o.Mdns) {
+	if o == nil || IsNil(o.Mdns) {
 		return nil, false
 	}
 	return o.Mdns, true
@@ -93,7 +96,7 @@ func (o *NetworkConfigServiceAnnouncement) GetMdnsOk() (*bool, bool) {
 
 // HasMdns returns a boolean if a field has been set.
 func (o *NetworkConfigServiceAnnouncement) HasMdns() bool {
-	if o != nil && !isNil(o.Mdns) {
+	if o != nil && !IsNil(o.Mdns) {
 		return true
 	}
 
@@ -107,7 +110,7 @@ func (o *NetworkConfigServiceAnnouncement) SetMdns(v bool) {
 
 // GetWsd returns the Wsd field value if set, zero value otherwise.
 func (o *NetworkConfigServiceAnnouncement) GetWsd() bool {
-	if o == nil || isNil(o.Wsd) {
+	if o == nil || IsNil(o.Wsd) {
 		var ret bool
 		return ret
 	}
@@ -117,7 +120,7 @@ func (o *NetworkConfigServiceAnnouncement) GetWsd() bool {
 // GetWsdOk returns a tuple with the Wsd field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *NetworkConfigServiceAnnouncement) GetWsdOk() (*bool, bool) {
-	if o == nil || isNil(o.Wsd) {
+	if o == nil || IsNil(o.Wsd) {
 		return nil, false
 	}
 	return o.Wsd, true
@@ -125,7 +128,7 @@ func (o *NetworkConfigServiceAnnouncement) GetWsdOk() (*bool, bool) {
 
 // HasWsd returns a boolean if a field has been set.
 func (o *NetworkConfigServiceAnnouncement) HasWsd() bool {
-	if o != nil && !isNil(o.Wsd) {
+	if o != nil && !IsNil(o.Wsd) {
 		return true
 	}
 
@@ -138,14 +141,22 @@ func (o *NetworkConfigServiceAnnouncement) SetWsd(v bool) {
 }
 
 func (o NetworkConfigServiceAnnouncement) MarshalJSON() ([]byte, error) {
+	toSerialize, err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o NetworkConfigServiceAnnouncement) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Netbios) {
+	if !IsNil(o.Netbios) {
 		toSerialize["netbios"] = o.Netbios
 	}
-	if !isNil(o.Mdns) {
+	if !IsNil(o.Mdns) {
 		toSerialize["mdns"] = o.Mdns
 	}
-	if !isNil(o.Wsd) {
+	if !IsNil(o.Wsd) {
 		toSerialize["wsd"] = o.Wsd
 	}
 
@@ -153,7 +164,7 @@ func (o NetworkConfigServiceAnnouncement) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 func (o *NetworkConfigServiceAnnouncement) UnmarshalJSON(bytes []byte) (err error) {

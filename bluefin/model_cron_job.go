@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the CronJob type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CronJob{}
+
 // CronJob struct for CronJob
 type CronJob struct {
 	Id                   *int32           `json:"id,omitempty"`
@@ -48,7 +51,7 @@ func NewCronJobWithDefaults() *CronJob {
 
 // GetId returns the Id field value if set, zero value otherwise.
 func (o *CronJob) GetId() int32 {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		var ret int32
 		return ret
 	}
@@ -58,7 +61,7 @@ func (o *CronJob) GetId() int32 {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CronJob) GetIdOk() (*int32, bool) {
-	if o == nil || isNil(o.Id) {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
 	return o.Id, true
@@ -66,7 +69,7 @@ func (o *CronJob) GetIdOk() (*int32, bool) {
 
 // HasId returns a boolean if a field has been set.
 func (o *CronJob) HasId() bool {
-	if o != nil && !isNil(o.Id) {
+	if o != nil && !IsNil(o.Id) {
 		return true
 	}
 
@@ -80,7 +83,7 @@ func (o *CronJob) SetId(v int32) {
 
 // GetUser returns the User field value if set, zero value otherwise.
 func (o *CronJob) GetUser() string {
-	if o == nil || isNil(o.User) {
+	if o == nil || IsNil(o.User) {
 		var ret string
 		return ret
 	}
@@ -90,7 +93,7 @@ func (o *CronJob) GetUser() string {
 // GetUserOk returns a tuple with the User field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CronJob) GetUserOk() (*string, bool) {
-	if o == nil || isNil(o.User) {
+	if o == nil || IsNil(o.User) {
 		return nil, false
 	}
 	return o.User, true
@@ -98,7 +101,7 @@ func (o *CronJob) GetUserOk() (*string, bool) {
 
 // HasUser returns a boolean if a field has been set.
 func (o *CronJob) HasUser() bool {
-	if o != nil && !isNil(o.User) {
+	if o != nil && !IsNil(o.User) {
 		return true
 	}
 
@@ -112,7 +115,7 @@ func (o *CronJob) SetUser(v string) {
 
 // GetCommand returns the Command field value if set, zero value otherwise.
 func (o *CronJob) GetCommand() string {
-	if o == nil || isNil(o.Command) {
+	if o == nil || IsNil(o.Command) {
 		var ret string
 		return ret
 	}
@@ -122,7 +125,7 @@ func (o *CronJob) GetCommand() string {
 // GetCommandOk returns a tuple with the Command field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CronJob) GetCommandOk() (*string, bool) {
-	if o == nil || isNil(o.Command) {
+	if o == nil || IsNil(o.Command) {
 		return nil, false
 	}
 	return o.Command, true
@@ -130,7 +133,7 @@ func (o *CronJob) GetCommandOk() (*string, bool) {
 
 // HasCommand returns a boolean if a field has been set.
 func (o *CronJob) HasCommand() bool {
-	if o != nil && !isNil(o.Command) {
+	if o != nil && !IsNil(o.Command) {
 		return true
 	}
 
@@ -144,7 +147,7 @@ func (o *CronJob) SetCommand(v string) {
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *CronJob) GetDescription() string {
-	if o == nil || isNil(o.Description) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
@@ -154,7 +157,7 @@ func (o *CronJob) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CronJob) GetDescriptionOk() (*string, bool) {
-	if o == nil || isNil(o.Description) {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
 	return o.Description, true
@@ -162,7 +165,7 @@ func (o *CronJob) GetDescriptionOk() (*string, bool) {
 
 // HasDescription returns a boolean if a field has been set.
 func (o *CronJob) HasDescription() bool {
-	if o != nil && !isNil(o.Description) {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
@@ -176,7 +179,7 @@ func (o *CronJob) SetDescription(v string) {
 
 // GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *CronJob) GetEnabled() bool {
-	if o == nil || isNil(o.Enabled) {
+	if o == nil || IsNil(o.Enabled) {
 		var ret bool
 		return ret
 	}
@@ -186,7 +189,7 @@ func (o *CronJob) GetEnabled() bool {
 // GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CronJob) GetEnabledOk() (*bool, bool) {
-	if o == nil || isNil(o.Enabled) {
+	if o == nil || IsNil(o.Enabled) {
 		return nil, false
 	}
 	return o.Enabled, true
@@ -194,7 +197,7 @@ func (o *CronJob) GetEnabledOk() (*bool, bool) {
 
 // HasEnabled returns a boolean if a field has been set.
 func (o *CronJob) HasEnabled() bool {
-	if o != nil && !isNil(o.Enabled) {
+	if o != nil && !IsNil(o.Enabled) {
 		return true
 	}
 
@@ -208,7 +211,7 @@ func (o *CronJob) SetEnabled(v bool) {
 
 // GetStdout returns the Stdout field value if set, zero value otherwise.
 func (o *CronJob) GetStdout() bool {
-	if o == nil || isNil(o.Stdout) {
+	if o == nil || IsNil(o.Stdout) {
 		var ret bool
 		return ret
 	}
@@ -218,7 +221,7 @@ func (o *CronJob) GetStdout() bool {
 // GetStdoutOk returns a tuple with the Stdout field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CronJob) GetStdoutOk() (*bool, bool) {
-	if o == nil || isNil(o.Stdout) {
+	if o == nil || IsNil(o.Stdout) {
 		return nil, false
 	}
 	return o.Stdout, true
@@ -226,7 +229,7 @@ func (o *CronJob) GetStdoutOk() (*bool, bool) {
 
 // HasStdout returns a boolean if a field has been set.
 func (o *CronJob) HasStdout() bool {
-	if o != nil && !isNil(o.Stdout) {
+	if o != nil && !IsNil(o.Stdout) {
 		return true
 	}
 
@@ -240,7 +243,7 @@ func (o *CronJob) SetStdout(v bool) {
 
 // GetStderr returns the Stderr field value if set, zero value otherwise.
 func (o *CronJob) GetStderr() bool {
-	if o == nil || isNil(o.Stderr) {
+	if o == nil || IsNil(o.Stderr) {
 		var ret bool
 		return ret
 	}
@@ -250,7 +253,7 @@ func (o *CronJob) GetStderr() bool {
 // GetStderrOk returns a tuple with the Stderr field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CronJob) GetStderrOk() (*bool, bool) {
-	if o == nil || isNil(o.Stderr) {
+	if o == nil || IsNil(o.Stderr) {
 		return nil, false
 	}
 	return o.Stderr, true
@@ -258,7 +261,7 @@ func (o *CronJob) GetStderrOk() (*bool, bool) {
 
 // HasStderr returns a boolean if a field has been set.
 func (o *CronJob) HasStderr() bool {
-	if o != nil && !isNil(o.Stderr) {
+	if o != nil && !IsNil(o.Stderr) {
 		return true
 	}
 
@@ -272,7 +275,7 @@ func (o *CronJob) SetStderr(v bool) {
 
 // GetSchedule returns the Schedule field value if set, zero value otherwise.
 func (o *CronJob) GetSchedule() CronJobSchedule {
-	if o == nil || isNil(o.Schedule) {
+	if o == nil || IsNil(o.Schedule) {
 		var ret CronJobSchedule
 		return ret
 	}
@@ -282,7 +285,7 @@ func (o *CronJob) GetSchedule() CronJobSchedule {
 // GetScheduleOk returns a tuple with the Schedule field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *CronJob) GetScheduleOk() (*CronJobSchedule, bool) {
-	if o == nil || isNil(o.Schedule) {
+	if o == nil || IsNil(o.Schedule) {
 		return nil, false
 	}
 	return o.Schedule, true
@@ -290,7 +293,7 @@ func (o *CronJob) GetScheduleOk() (*CronJobSchedule, bool) {
 
 // HasSchedule returns a boolean if a field has been set.
 func (o *CronJob) HasSchedule() bool {
-	if o != nil && !isNil(o.Schedule) {
+	if o != nil && !IsNil(o.Schedule) {
 		return true
 	}
 
@@ -303,29 +306,37 @@ func (o *CronJob) SetSchedule(v CronJobSchedule) {
 }
 
 func (o CronJob) MarshalJSON() ([]byte, error) {
+	toSerialize, err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o CronJob) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.Id) {
+	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if !isNil(o.User) {
+	if !IsNil(o.User) {
 		toSerialize["user"] = o.User
 	}
-	if !isNil(o.Command) {
+	if !IsNil(o.Command) {
 		toSerialize["command"] = o.Command
 	}
-	if !isNil(o.Description) {
+	if !IsNil(o.Description) {
 		toSerialize["description"] = o.Description
 	}
-	if !isNil(o.Enabled) {
+	if !IsNil(o.Enabled) {
 		toSerialize["enabled"] = o.Enabled
 	}
-	if !isNil(o.Stdout) {
+	if !IsNil(o.Stdout) {
 		toSerialize["stdout"] = o.Stdout
 	}
-	if !isNil(o.Stderr) {
+	if !IsNil(o.Stderr) {
 		toSerialize["stderr"] = o.Stderr
 	}
-	if !isNil(o.Schedule) {
+	if !IsNil(o.Schedule) {
 		toSerialize["schedule"] = o.Schedule
 	}
 
@@ -333,7 +344,7 @@ func (o CronJob) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 func (o *CronJob) UnmarshalJSON(bytes []byte) (err error) {

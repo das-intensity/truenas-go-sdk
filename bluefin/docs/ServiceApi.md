@@ -23,7 +23,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/dariusbakunas/truenas-go-sdk/bluefin"
 )
 
 func main() {

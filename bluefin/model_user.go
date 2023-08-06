@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the User type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &User{}
+
 // User struct for User
 type User struct {
 	Id                   int32                  `json:"id"`
@@ -90,7 +93,7 @@ func (o *User) SetId(v int32) {
 
 // GetUid returns the Uid field value if set, zero value otherwise.
 func (o *User) GetUid() int32 {
-	if o == nil || isNil(o.Uid) {
+	if o == nil || IsNil(o.Uid) {
 		var ret int32
 		return ret
 	}
@@ -100,7 +103,7 @@ func (o *User) GetUid() int32 {
 // GetUidOk returns a tuple with the Uid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *User) GetUidOk() (*int32, bool) {
-	if o == nil || isNil(o.Uid) {
+	if o == nil || IsNil(o.Uid) {
 		return nil, false
 	}
 	return o.Uid, true
@@ -108,7 +111,7 @@ func (o *User) GetUidOk() (*int32, bool) {
 
 // HasUid returns a boolean if a field has been set.
 func (o *User) HasUid() bool {
-	if o != nil && !isNil(o.Uid) {
+	if o != nil && !IsNil(o.Uid) {
 		return true
 	}
 
@@ -146,7 +149,7 @@ func (o *User) SetUsername(v string) {
 
 // GetUnixhash returns the Unixhash field value if set, zero value otherwise.
 func (o *User) GetUnixhash() string {
-	if o == nil || isNil(o.Unixhash) {
+	if o == nil || IsNil(o.Unixhash) {
 		var ret string
 		return ret
 	}
@@ -156,7 +159,7 @@ func (o *User) GetUnixhash() string {
 // GetUnixhashOk returns a tuple with the Unixhash field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *User) GetUnixhashOk() (*string, bool) {
-	if o == nil || isNil(o.Unixhash) {
+	if o == nil || IsNil(o.Unixhash) {
 		return nil, false
 	}
 	return o.Unixhash, true
@@ -164,7 +167,7 @@ func (o *User) GetUnixhashOk() (*string, bool) {
 
 // HasUnixhash returns a boolean if a field has been set.
 func (o *User) HasUnixhash() bool {
-	if o != nil && !isNil(o.Unixhash) {
+	if o != nil && !IsNil(o.Unixhash) {
 		return true
 	}
 
@@ -178,7 +181,7 @@ func (o *User) SetUnixhash(v string) {
 
 // GetSmbhash returns the Smbhash field value if set, zero value otherwise.
 func (o *User) GetSmbhash() string {
-	if o == nil || isNil(o.Smbhash) {
+	if o == nil || IsNil(o.Smbhash) {
 		var ret string
 		return ret
 	}
@@ -188,7 +191,7 @@ func (o *User) GetSmbhash() string {
 // GetSmbhashOk returns a tuple with the Smbhash field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *User) GetSmbhashOk() (*string, bool) {
-	if o == nil || isNil(o.Smbhash) {
+	if o == nil || IsNil(o.Smbhash) {
 		return nil, false
 	}
 	return o.Smbhash, true
@@ -196,7 +199,7 @@ func (o *User) GetSmbhashOk() (*string, bool) {
 
 // HasSmbhash returns a boolean if a field has been set.
 func (o *User) HasSmbhash() bool {
-	if o != nil && !isNil(o.Smbhash) {
+	if o != nil && !IsNil(o.Smbhash) {
 		return true
 	}
 
@@ -210,7 +213,7 @@ func (o *User) SetSmbhash(v string) {
 
 // GetHome returns the Home field value if set, zero value otherwise.
 func (o *User) GetHome() string {
-	if o == nil || isNil(o.Home) {
+	if o == nil || IsNil(o.Home) {
 		var ret string
 		return ret
 	}
@@ -220,7 +223,7 @@ func (o *User) GetHome() string {
 // GetHomeOk returns a tuple with the Home field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *User) GetHomeOk() (*string, bool) {
-	if o == nil || isNil(o.Home) {
+	if o == nil || IsNil(o.Home) {
 		return nil, false
 	}
 	return o.Home, true
@@ -228,7 +231,7 @@ func (o *User) GetHomeOk() (*string, bool) {
 
 // HasHome returns a boolean if a field has been set.
 func (o *User) HasHome() bool {
-	if o != nil && !isNil(o.Home) {
+	if o != nil && !IsNil(o.Home) {
 		return true
 	}
 
@@ -242,7 +245,7 @@ func (o *User) SetHome(v string) {
 
 // GetShell returns the Shell field value if set, zero value otherwise.
 func (o *User) GetShell() string {
-	if o == nil || isNil(o.Shell) {
+	if o == nil || IsNil(o.Shell) {
 		var ret string
 		return ret
 	}
@@ -252,7 +255,7 @@ func (o *User) GetShell() string {
 // GetShellOk returns a tuple with the Shell field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *User) GetShellOk() (*string, bool) {
-	if o == nil || isNil(o.Shell) {
+	if o == nil || IsNil(o.Shell) {
 		return nil, false
 	}
 	return o.Shell, true
@@ -260,7 +263,7 @@ func (o *User) GetShellOk() (*string, bool) {
 
 // HasShell returns a boolean if a field has been set.
 func (o *User) HasShell() bool {
-	if o != nil && !isNil(o.Shell) {
+	if o != nil && !IsNil(o.Shell) {
 		return true
 	}
 
@@ -298,7 +301,7 @@ func (o *User) SetFullName(v string) {
 
 // GetBuiltin returns the Builtin field value if set, zero value otherwise.
 func (o *User) GetBuiltin() bool {
-	if o == nil || isNil(o.Builtin) {
+	if o == nil || IsNil(o.Builtin) {
 		var ret bool
 		return ret
 	}
@@ -308,7 +311,7 @@ func (o *User) GetBuiltin() bool {
 // GetBuiltinOk returns a tuple with the Builtin field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *User) GetBuiltinOk() (*bool, bool) {
-	if o == nil || isNil(o.Builtin) {
+	if o == nil || IsNil(o.Builtin) {
 		return nil, false
 	}
 	return o.Builtin, true
@@ -316,7 +319,7 @@ func (o *User) GetBuiltinOk() (*bool, bool) {
 
 // HasBuiltin returns a boolean if a field has been set.
 func (o *User) HasBuiltin() bool {
-	if o != nil && !isNil(o.Builtin) {
+	if o != nil && !IsNil(o.Builtin) {
 		return true
 	}
 
@@ -330,7 +333,7 @@ func (o *User) SetBuiltin(v bool) {
 
 // GetSmb returns the Smb field value if set, zero value otherwise.
 func (o *User) GetSmb() bool {
-	if o == nil || isNil(o.Smb) {
+	if o == nil || IsNil(o.Smb) {
 		var ret bool
 		return ret
 	}
@@ -340,7 +343,7 @@ func (o *User) GetSmb() bool {
 // GetSmbOk returns a tuple with the Smb field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *User) GetSmbOk() (*bool, bool) {
-	if o == nil || isNil(o.Smb) {
+	if o == nil || IsNil(o.Smb) {
 		return nil, false
 	}
 	return o.Smb, true
@@ -348,7 +351,7 @@ func (o *User) GetSmbOk() (*bool, bool) {
 
 // HasSmb returns a boolean if a field has been set.
 func (o *User) HasSmb() bool {
-	if o != nil && !isNil(o.Smb) {
+	if o != nil && !IsNil(o.Smb) {
 		return true
 	}
 
@@ -362,7 +365,7 @@ func (o *User) SetSmb(v bool) {
 
 // GetPasswordDisabled returns the PasswordDisabled field value if set, zero value otherwise.
 func (o *User) GetPasswordDisabled() bool {
-	if o == nil || isNil(o.PasswordDisabled) {
+	if o == nil || IsNil(o.PasswordDisabled) {
 		var ret bool
 		return ret
 	}
@@ -372,7 +375,7 @@ func (o *User) GetPasswordDisabled() bool {
 // GetPasswordDisabledOk returns a tuple with the PasswordDisabled field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *User) GetPasswordDisabledOk() (*bool, bool) {
-	if o == nil || isNil(o.PasswordDisabled) {
+	if o == nil || IsNil(o.PasswordDisabled) {
 		return nil, false
 	}
 	return o.PasswordDisabled, true
@@ -380,7 +383,7 @@ func (o *User) GetPasswordDisabledOk() (*bool, bool) {
 
 // HasPasswordDisabled returns a boolean if a field has been set.
 func (o *User) HasPasswordDisabled() bool {
-	if o != nil && !isNil(o.PasswordDisabled) {
+	if o != nil && !IsNil(o.PasswordDisabled) {
 		return true
 	}
 
@@ -394,7 +397,7 @@ func (o *User) SetPasswordDisabled(v bool) {
 
 // GetLocked returns the Locked field value if set, zero value otherwise.
 func (o *User) GetLocked() bool {
-	if o == nil || isNil(o.Locked) {
+	if o == nil || IsNil(o.Locked) {
 		var ret bool
 		return ret
 	}
@@ -404,7 +407,7 @@ func (o *User) GetLocked() bool {
 // GetLockedOk returns a tuple with the Locked field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *User) GetLockedOk() (*bool, bool) {
-	if o == nil || isNil(o.Locked) {
+	if o == nil || IsNil(o.Locked) {
 		return nil, false
 	}
 	return o.Locked, true
@@ -412,7 +415,7 @@ func (o *User) GetLockedOk() (*bool, bool) {
 
 // HasLocked returns a boolean if a field has been set.
 func (o *User) HasLocked() bool {
-	if o != nil && !isNil(o.Locked) {
+	if o != nil && !IsNil(o.Locked) {
 		return true
 	}
 
@@ -426,7 +429,7 @@ func (o *User) SetLocked(v bool) {
 
 // GetSudo returns the Sudo field value if set, zero value otherwise.
 func (o *User) GetSudo() bool {
-	if o == nil || isNil(o.Sudo) {
+	if o == nil || IsNil(o.Sudo) {
 		var ret bool
 		return ret
 	}
@@ -436,7 +439,7 @@ func (o *User) GetSudo() bool {
 // GetSudoOk returns a tuple with the Sudo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *User) GetSudoOk() (*bool, bool) {
-	if o == nil || isNil(o.Sudo) {
+	if o == nil || IsNil(o.Sudo) {
 		return nil, false
 	}
 	return o.Sudo, true
@@ -444,7 +447,7 @@ func (o *User) GetSudoOk() (*bool, bool) {
 
 // HasSudo returns a boolean if a field has been set.
 func (o *User) HasSudo() bool {
-	if o != nil && !isNil(o.Sudo) {
+	if o != nil && !IsNil(o.Sudo) {
 		return true
 	}
 
@@ -458,7 +461,7 @@ func (o *User) SetSudo(v bool) {
 
 // GetSudoNopasswd returns the SudoNopasswd field value if set, zero value otherwise.
 func (o *User) GetSudoNopasswd() bool {
-	if o == nil || isNil(o.SudoNopasswd) {
+	if o == nil || IsNil(o.SudoNopasswd) {
 		var ret bool
 		return ret
 	}
@@ -468,7 +471,7 @@ func (o *User) GetSudoNopasswd() bool {
 // GetSudoNopasswdOk returns a tuple with the SudoNopasswd field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *User) GetSudoNopasswdOk() (*bool, bool) {
-	if o == nil || isNil(o.SudoNopasswd) {
+	if o == nil || IsNil(o.SudoNopasswd) {
 		return nil, false
 	}
 	return o.SudoNopasswd, true
@@ -476,7 +479,7 @@ func (o *User) GetSudoNopasswdOk() (*bool, bool) {
 
 // HasSudoNopasswd returns a boolean if a field has been set.
 func (o *User) HasSudoNopasswd() bool {
-	if o != nil && !isNil(o.SudoNopasswd) {
+	if o != nil && !IsNil(o.SudoNopasswd) {
 		return true
 	}
 
@@ -490,7 +493,7 @@ func (o *User) SetSudoNopasswd(v bool) {
 
 // GetSudoCommands returns the SudoCommands field value if set, zero value otherwise.
 func (o *User) GetSudoCommands() []string {
-	if o == nil || isNil(o.SudoCommands) {
+	if o == nil || IsNil(o.SudoCommands) {
 		var ret []string
 		return ret
 	}
@@ -500,7 +503,7 @@ func (o *User) GetSudoCommands() []string {
 // GetSudoCommandsOk returns a tuple with the SudoCommands field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *User) GetSudoCommandsOk() ([]string, bool) {
-	if o == nil || isNil(o.SudoCommands) {
+	if o == nil || IsNil(o.SudoCommands) {
 		return nil, false
 	}
 	return o.SudoCommands, true
@@ -508,7 +511,7 @@ func (o *User) GetSudoCommandsOk() ([]string, bool) {
 
 // HasSudoCommands returns a boolean if a field has been set.
 func (o *User) HasSudoCommands() bool {
-	if o != nil && !isNil(o.SudoCommands) {
+	if o != nil && !IsNil(o.SudoCommands) {
 		return true
 	}
 
@@ -522,7 +525,7 @@ func (o *User) SetSudoCommands(v []string) {
 
 // GetMicrosoftAccount returns the MicrosoftAccount field value if set, zero value otherwise.
 func (o *User) GetMicrosoftAccount() bool {
-	if o == nil || isNil(o.MicrosoftAccount) {
+	if o == nil || IsNil(o.MicrosoftAccount) {
 		var ret bool
 		return ret
 	}
@@ -532,7 +535,7 @@ func (o *User) GetMicrosoftAccount() bool {
 // GetMicrosoftAccountOk returns a tuple with the MicrosoftAccount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *User) GetMicrosoftAccountOk() (*bool, bool) {
-	if o == nil || isNil(o.MicrosoftAccount) {
+	if o == nil || IsNil(o.MicrosoftAccount) {
 		return nil, false
 	}
 	return o.MicrosoftAccount, true
@@ -540,7 +543,7 @@ func (o *User) GetMicrosoftAccountOk() (*bool, bool) {
 
 // HasMicrosoftAccount returns a boolean if a field has been set.
 func (o *User) HasMicrosoftAccount() bool {
-	if o != nil && !isNil(o.MicrosoftAccount) {
+	if o != nil && !IsNil(o.MicrosoftAccount) {
 		return true
 	}
 
@@ -554,7 +557,7 @@ func (o *User) SetMicrosoftAccount(v bool) {
 
 // GetAttributes returns the Attributes field value if set, zero value otherwise.
 func (o *User) GetAttributes() map[string]interface{} {
-	if o == nil || isNil(o.Attributes) {
+	if o == nil || IsNil(o.Attributes) {
 		var ret map[string]interface{}
 		return ret
 	}
@@ -564,7 +567,7 @@ func (o *User) GetAttributes() map[string]interface{} {
 // GetAttributesOk returns a tuple with the Attributes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *User) GetAttributesOk() (map[string]interface{}, bool) {
-	if o == nil || isNil(o.Attributes) {
+	if o == nil || IsNil(o.Attributes) {
 		return map[string]interface{}{}, false
 	}
 	return o.Attributes, true
@@ -572,7 +575,7 @@ func (o *User) GetAttributesOk() (map[string]interface{}, bool) {
 
 // HasAttributes returns a boolean if a field has been set.
 func (o *User) HasAttributes() bool {
-	if o != nil && !isNil(o.Attributes) {
+	if o != nil && !IsNil(o.Attributes) {
 		return true
 	}
 
@@ -586,7 +589,7 @@ func (o *User) SetAttributes(v map[string]interface{}) {
 
 // GetEmail returns the Email field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *User) GetEmail() string {
-	if o == nil || isNil(o.Email.Get()) {
+	if o == nil || IsNil(o.Email.Get()) {
 		var ret string
 		return ret
 	}
@@ -629,7 +632,7 @@ func (o *User) UnsetEmail() {
 
 // GetGroup returns the Group field value if set, zero value otherwise.
 func (o *User) GetGroup() UserGroup {
-	if o == nil || isNil(o.Group) {
+	if o == nil || IsNil(o.Group) {
 		var ret UserGroup
 		return ret
 	}
@@ -639,7 +642,7 @@ func (o *User) GetGroup() UserGroup {
 // GetGroupOk returns a tuple with the Group field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *User) GetGroupOk() (*UserGroup, bool) {
-	if o == nil || isNil(o.Group) {
+	if o == nil || IsNil(o.Group) {
 		return nil, false
 	}
 	return o.Group, true
@@ -647,7 +650,7 @@ func (o *User) GetGroupOk() (*UserGroup, bool) {
 
 // HasGroup returns a boolean if a field has been set.
 func (o *User) HasGroup() bool {
-	if o != nil && !isNil(o.Group) {
+	if o != nil && !IsNil(o.Group) {
 		return true
 	}
 
@@ -661,7 +664,7 @@ func (o *User) SetGroup(v UserGroup) {
 
 // GetGroups returns the Groups field value if set, zero value otherwise.
 func (o *User) GetGroups() []int32 {
-	if o == nil || isNil(o.Groups) {
+	if o == nil || IsNil(o.Groups) {
 		var ret []int32
 		return ret
 	}
@@ -671,7 +674,7 @@ func (o *User) GetGroups() []int32 {
 // GetGroupsOk returns a tuple with the Groups field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *User) GetGroupsOk() ([]int32, bool) {
-	if o == nil || isNil(o.Groups) {
+	if o == nil || IsNil(o.Groups) {
 		return nil, false
 	}
 	return o.Groups, true
@@ -679,7 +682,7 @@ func (o *User) GetGroupsOk() ([]int32, bool) {
 
 // HasGroups returns a boolean if a field has been set.
 func (o *User) HasGroups() bool {
-	if o != nil && !isNil(o.Groups) {
+	if o != nil && !IsNil(o.Groups) {
 		return true
 	}
 
@@ -693,7 +696,7 @@ func (o *User) SetGroups(v []int32) {
 
 // GetSshpubkey returns the Sshpubkey field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *User) GetSshpubkey() string {
-	if o == nil || isNil(o.Sshpubkey.Get()) {
+	if o == nil || IsNil(o.Sshpubkey.Get()) {
 		var ret string
 		return ret
 	}
@@ -736,7 +739,7 @@ func (o *User) UnsetSshpubkey() {
 
 // GetLocal returns the Local field value if set, zero value otherwise.
 func (o *User) GetLocal() bool {
-	if o == nil || isNil(o.Local) {
+	if o == nil || IsNil(o.Local) {
 		var ret bool
 		return ret
 	}
@@ -746,7 +749,7 @@ func (o *User) GetLocal() bool {
 // GetLocalOk returns a tuple with the Local field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *User) GetLocalOk() (*bool, bool) {
-	if o == nil || isNil(o.Local) {
+	if o == nil || IsNil(o.Local) {
 		return nil, false
 	}
 	return o.Local, true
@@ -754,7 +757,7 @@ func (o *User) GetLocalOk() (*bool, bool) {
 
 // HasLocal returns a boolean if a field has been set.
 func (o *User) HasLocal() bool {
-	if o != nil && !isNil(o.Local) {
+	if o != nil && !IsNil(o.Local) {
 		return true
 	}
 
@@ -768,7 +771,7 @@ func (o *User) SetLocal(v bool) {
 
 // GetIdTypeBoth returns the IdTypeBoth field value if set, zero value otherwise.
 func (o *User) GetIdTypeBoth() bool {
-	if o == nil || isNil(o.IdTypeBoth) {
+	if o == nil || IsNil(o.IdTypeBoth) {
 		var ret bool
 		return ret
 	}
@@ -778,7 +781,7 @@ func (o *User) GetIdTypeBoth() bool {
 // GetIdTypeBothOk returns a tuple with the IdTypeBoth field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *User) GetIdTypeBothOk() (*bool, bool) {
-	if o == nil || isNil(o.IdTypeBoth) {
+	if o == nil || IsNil(o.IdTypeBoth) {
 		return nil, false
 	}
 	return o.IdTypeBoth, true
@@ -786,7 +789,7 @@ func (o *User) GetIdTypeBothOk() (*bool, bool) {
 
 // HasIdTypeBoth returns a boolean if a field has been set.
 func (o *User) HasIdTypeBoth() bool {
-	if o != nil && !isNil(o.IdTypeBoth) {
+	if o != nil && !IsNil(o.IdTypeBoth) {
 		return true
 	}
 
@@ -799,74 +802,76 @@ func (o *User) SetIdTypeBoth(v bool) {
 }
 
 func (o User) MarshalJSON() ([]byte, error) {
-	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["id"] = o.Id
+	toSerialize, err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
 	}
-	if !isNil(o.Uid) {
+	return json.Marshal(toSerialize)
+}
+
+func (o User) ToMap() (map[string]interface{}, error) {
+	toSerialize := map[string]interface{}{}
+	toSerialize["id"] = o.Id
+	if !IsNil(o.Uid) {
 		toSerialize["uid"] = o.Uid
 	}
-	if true {
-		toSerialize["username"] = o.Username
-	}
-	if !isNil(o.Unixhash) {
+	toSerialize["username"] = o.Username
+	if !IsNil(o.Unixhash) {
 		toSerialize["unixhash"] = o.Unixhash
 	}
-	if !isNil(o.Smbhash) {
+	if !IsNil(o.Smbhash) {
 		toSerialize["smbhash"] = o.Smbhash
 	}
-	if !isNil(o.Home) {
+	if !IsNil(o.Home) {
 		toSerialize["home"] = o.Home
 	}
-	if !isNil(o.Shell) {
+	if !IsNil(o.Shell) {
 		toSerialize["shell"] = o.Shell
 	}
-	if true {
-		toSerialize["full_name"] = o.FullName
-	}
-	if !isNil(o.Builtin) {
+	toSerialize["full_name"] = o.FullName
+	if !IsNil(o.Builtin) {
 		toSerialize["builtin"] = o.Builtin
 	}
-	if !isNil(o.Smb) {
+	if !IsNil(o.Smb) {
 		toSerialize["smb"] = o.Smb
 	}
-	if !isNil(o.PasswordDisabled) {
+	if !IsNil(o.PasswordDisabled) {
 		toSerialize["password_disabled"] = o.PasswordDisabled
 	}
-	if !isNil(o.Locked) {
+	if !IsNil(o.Locked) {
 		toSerialize["locked"] = o.Locked
 	}
-	if !isNil(o.Sudo) {
+	if !IsNil(o.Sudo) {
 		toSerialize["sudo"] = o.Sudo
 	}
-	if !isNil(o.SudoNopasswd) {
+	if !IsNil(o.SudoNopasswd) {
 		toSerialize["sudo_nopasswd"] = o.SudoNopasswd
 	}
-	if !isNil(o.SudoCommands) {
+	if !IsNil(o.SudoCommands) {
 		toSerialize["sudo_commands"] = o.SudoCommands
 	}
-	if !isNil(o.MicrosoftAccount) {
+	if !IsNil(o.MicrosoftAccount) {
 		toSerialize["microsoft_account"] = o.MicrosoftAccount
 	}
-	if !isNil(o.Attributes) {
+	if !IsNil(o.Attributes) {
 		toSerialize["attributes"] = o.Attributes
 	}
 	if o.Email.IsSet() {
 		toSerialize["email"] = o.Email.Get()
 	}
-	if !isNil(o.Group) {
+	if !IsNil(o.Group) {
 		toSerialize["group"] = o.Group
 	}
-	if !isNil(o.Groups) {
+	if !IsNil(o.Groups) {
 		toSerialize["groups"] = o.Groups
 	}
 	if o.Sshpubkey.IsSet() {
 		toSerialize["sshpubkey"] = o.Sshpubkey.Get()
 	}
-	if !isNil(o.Local) {
+	if !IsNil(o.Local) {
 		toSerialize["local"] = o.Local
 	}
-	if !isNil(o.IdTypeBoth) {
+	if !IsNil(o.IdTypeBoth) {
 		toSerialize["id_type_both"] = o.IdTypeBoth
 	}
 
@@ -874,7 +879,7 @@ func (o User) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 func (o *User) UnmarshalJSON(bytes []byte) (err error) {
