@@ -15,7 +15,6 @@ Install the following dependencies:
 
 ```shell
 go get github.com/stretchr/testify/assert
-go get golang.org/x/oauth2
 go get golang.org/x/net/context
 ```
 
@@ -92,6 +91,8 @@ Class | Method | HTTP request | Description
 *GroupApi* | [**GetGroup**](docs/GroupApi.md#getgroup) | **Get** /group/id/{id} | 
 *GroupApi* | [**ListGroups**](docs/GroupApi.md#listgroups) | **Get** /group | 
 *GroupApi* | [**UpdateGroup**](docs/GroupApi.md#updategroup) | **Put** /group/id/{id} | 
+*InterfaceApi* | [**InterfaceGet**](docs/InterfaceApi.md#interfaceget) | **Get** /interface | 
+*InterfaceApi* | [**InterfacePost**](docs/InterfaceApi.md#interfacepost) | **Post** /interface | 
 *NetworkApi* | [**GetNetworkConfiguration**](docs/NetworkApi.md#getnetworkconfiguration) | **Get** /network/configuration | 
 *NetworkApi* | [**GetNetworkSummary**](docs/NetworkApi.md#getnetworksummary) | **Get** /network/general/summary | 
 *PoolApi* | [**ListPools**](docs/PoolApi.md#listpools) | **Get** /pool | 
@@ -136,6 +137,10 @@ Class | Method | HTTP request | Description
  - [DeleteGroupParams](docs/DeleteGroupParams.md)
  - [DeleteUserParams](docs/DeleteUserParams.md)
  - [Group](docs/Group.md)
+ - [InterfaceAlias](docs/InterfaceAlias.md)
+ - [InterfaceCreate](docs/InterfaceCreate.md)
+ - [InterfaceFailoverAlias](docs/InterfaceFailoverAlias.md)
+ - [InterfaceVirtualAlias](docs/InterfaceVirtualAlias.md)
  - [NetworkConfig](docs/NetworkConfig.md)
  - [NetworkConfigServiceAnnouncement](docs/NetworkConfigServiceAnnouncement.md)
  - [NetworkSummary](docs/NetworkSummary.md)
@@ -157,7 +162,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Authorization
 
 
-
+Authentication schemes defined for the API:
 ### bearerAuth
 
 - **Type**: HTTP Bearer token authentication

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the DeleteUserParams type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &DeleteUserParams{}
+
 // DeleteUserParams struct for DeleteUserParams
 type DeleteUserParams struct {
 	DeleteGroup          *bool `json:"delete_group,omitempty"`
@@ -41,7 +44,7 @@ func NewDeleteUserParamsWithDefaults() *DeleteUserParams {
 
 // GetDeleteGroup returns the DeleteGroup field value if set, zero value otherwise.
 func (o *DeleteUserParams) GetDeleteGroup() bool {
-	if o == nil || isNil(o.DeleteGroup) {
+	if o == nil || IsNil(o.DeleteGroup) {
 		var ret bool
 		return ret
 	}
@@ -51,7 +54,7 @@ func (o *DeleteUserParams) GetDeleteGroup() bool {
 // GetDeleteGroupOk returns a tuple with the DeleteGroup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeleteUserParams) GetDeleteGroupOk() (*bool, bool) {
-	if o == nil || isNil(o.DeleteGroup) {
+	if o == nil || IsNil(o.DeleteGroup) {
 		return nil, false
 	}
 	return o.DeleteGroup, true
@@ -59,7 +62,7 @@ func (o *DeleteUserParams) GetDeleteGroupOk() (*bool, bool) {
 
 // HasDeleteGroup returns a boolean if a field has been set.
 func (o *DeleteUserParams) HasDeleteGroup() bool {
-	if o != nil && !isNil(o.DeleteGroup) {
+	if o != nil && !IsNil(o.DeleteGroup) {
 		return true
 	}
 
@@ -72,8 +75,16 @@ func (o *DeleteUserParams) SetDeleteGroup(v bool) {
 }
 
 func (o DeleteUserParams) MarshalJSON() ([]byte, error) {
+	toSerialize, err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o DeleteUserParams) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.DeleteGroup) {
+	if !IsNil(o.DeleteGroup) {
 		toSerialize["delete_group"] = o.DeleteGroup
 	}
 
@@ -81,7 +92,7 @@ func (o DeleteUserParams) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 func (o *DeleteUserParams) UnmarshalJSON(bytes []byte) (err error) {

@@ -6,6 +6,7 @@ api/openapi.yaml
 api_cronjob.go
 api_dataset.go
 api_group.go
+api_interface.go
 api_network.go
 api_pool.go
 api_service.go
@@ -32,6 +33,11 @@ docs/DeleteGroupParams.md
 docs/DeleteUserParams.md
 docs/Group.md
 docs/GroupApi.md
+docs/InterfaceAlias.md
+docs/InterfaceApi.md
+docs/InterfaceCreate.md
+docs/InterfaceFailoverAlias.md
+docs/InterfaceVirtualAlias.md
 docs/NetworkApi.md
 docs/NetworkConfig.md
 docs/NetworkConfigServiceAnnouncement.md
@@ -72,6 +78,10 @@ model_dataset.go
 model_delete_group_params.go
 model_delete_user_params.go
 model_group.go
+model_interface_alias.go
+model_interface_create.go
+model_interface_failover_alias.go
+model_interface_virtual_alias.go
 model_network_config.go
 model_network_config_service_announcement.go
 model_network_summary.go
@@ -92,6 +102,7 @@ response.go
 test/api_cronjob_test.go
 test/api_dataset_test.go
 test/api_group_test.go
+test/api_interface_test.go
 test/api_network_test.go
 test/api_pool_test.go
 test/api_service_test.go

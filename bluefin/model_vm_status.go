@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the VMStatus type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &VMStatus{}
+
 // VMStatus struct for VMStatus
 type VMStatus struct {
 	State                *string `json:"state,omitempty"`
@@ -43,7 +46,7 @@ func NewVMStatusWithDefaults() *VMStatus {
 
 // GetState returns the State field value if set, zero value otherwise.
 func (o *VMStatus) GetState() string {
-	if o == nil || isNil(o.State) {
+	if o == nil || IsNil(o.State) {
 		var ret string
 		return ret
 	}
@@ -53,7 +56,7 @@ func (o *VMStatus) GetState() string {
 // GetStateOk returns a tuple with the State field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VMStatus) GetStateOk() (*string, bool) {
-	if o == nil || isNil(o.State) {
+	if o == nil || IsNil(o.State) {
 		return nil, false
 	}
 	return o.State, true
@@ -61,7 +64,7 @@ func (o *VMStatus) GetStateOk() (*string, bool) {
 
 // HasState returns a boolean if a field has been set.
 func (o *VMStatus) HasState() bool {
-	if o != nil && !isNil(o.State) {
+	if o != nil && !IsNil(o.State) {
 		return true
 	}
 
@@ -75,7 +78,7 @@ func (o *VMStatus) SetState(v string) {
 
 // GetPid returns the Pid field value if set, zero value otherwise.
 func (o *VMStatus) GetPid() int32 {
-	if o == nil || isNil(o.Pid) {
+	if o == nil || IsNil(o.Pid) {
 		var ret int32
 		return ret
 	}
@@ -85,7 +88,7 @@ func (o *VMStatus) GetPid() int32 {
 // GetPidOk returns a tuple with the Pid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VMStatus) GetPidOk() (*int32, bool) {
-	if o == nil || isNil(o.Pid) {
+	if o == nil || IsNil(o.Pid) {
 		return nil, false
 	}
 	return o.Pid, true
@@ -93,7 +96,7 @@ func (o *VMStatus) GetPidOk() (*int32, bool) {
 
 // HasPid returns a boolean if a field has been set.
 func (o *VMStatus) HasPid() bool {
-	if o != nil && !isNil(o.Pid) {
+	if o != nil && !IsNil(o.Pid) {
 		return true
 	}
 
@@ -107,7 +110,7 @@ func (o *VMStatus) SetPid(v int32) {
 
 // GetDomainState returns the DomainState field value if set, zero value otherwise.
 func (o *VMStatus) GetDomainState() string {
-	if o == nil || isNil(o.DomainState) {
+	if o == nil || IsNil(o.DomainState) {
 		var ret string
 		return ret
 	}
@@ -117,7 +120,7 @@ func (o *VMStatus) GetDomainState() string {
 // GetDomainStateOk returns a tuple with the DomainState field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *VMStatus) GetDomainStateOk() (*string, bool) {
-	if o == nil || isNil(o.DomainState) {
+	if o == nil || IsNil(o.DomainState) {
 		return nil, false
 	}
 	return o.DomainState, true
@@ -125,7 +128,7 @@ func (o *VMStatus) GetDomainStateOk() (*string, bool) {
 
 // HasDomainState returns a boolean if a field has been set.
 func (o *VMStatus) HasDomainState() bool {
-	if o != nil && !isNil(o.DomainState) {
+	if o != nil && !IsNil(o.DomainState) {
 		return true
 	}
 
@@ -138,14 +141,22 @@ func (o *VMStatus) SetDomainState(v string) {
 }
 
 func (o VMStatus) MarshalJSON() ([]byte, error) {
+	toSerialize, err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o VMStatus) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.State) {
+	if !IsNil(o.State) {
 		toSerialize["state"] = o.State
 	}
-	if !isNil(o.Pid) {
+	if !IsNil(o.Pid) {
 		toSerialize["pid"] = o.Pid
 	}
-	if !isNil(o.DomainState) {
+	if !IsNil(o.DomainState) {
 		toSerialize["domain_state"] = o.DomainState
 	}
 
@@ -153,7 +164,7 @@ func (o VMStatus) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 func (o *VMStatus) UnmarshalJSON(bytes []byte) (err error) {

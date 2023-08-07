@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the Service type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Service{}
+
 // Service struct for Service
 type Service struct {
 	Id                   int32   `json:"id"`
@@ -95,7 +98,7 @@ func (o *Service) SetService(v string) {
 
 // GetEnable returns the Enable field value if set, zero value otherwise.
 func (o *Service) GetEnable() bool {
-	if o == nil || isNil(o.Enable) {
+	if o == nil || IsNil(o.Enable) {
 		var ret bool
 		return ret
 	}
@@ -105,7 +108,7 @@ func (o *Service) GetEnable() bool {
 // GetEnableOk returns a tuple with the Enable field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Service) GetEnableOk() (*bool, bool) {
-	if o == nil || isNil(o.Enable) {
+	if o == nil || IsNil(o.Enable) {
 		return nil, false
 	}
 	return o.Enable, true
@@ -113,7 +116,7 @@ func (o *Service) GetEnableOk() (*bool, bool) {
 
 // HasEnable returns a boolean if a field has been set.
 func (o *Service) HasEnable() bool {
-	if o != nil && !isNil(o.Enable) {
+	if o != nil && !IsNil(o.Enable) {
 		return true
 	}
 
@@ -127,7 +130,7 @@ func (o *Service) SetEnable(v bool) {
 
 // GetState returns the State field value if set, zero value otherwise.
 func (o *Service) GetState() string {
-	if o == nil || isNil(o.State) {
+	if o == nil || IsNil(o.State) {
 		var ret string
 		return ret
 	}
@@ -137,7 +140,7 @@ func (o *Service) GetState() string {
 // GetStateOk returns a tuple with the State field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Service) GetStateOk() (*string, bool) {
-	if o == nil || isNil(o.State) {
+	if o == nil || IsNil(o.State) {
 		return nil, false
 	}
 	return o.State, true
@@ -145,7 +148,7 @@ func (o *Service) GetStateOk() (*string, bool) {
 
 // HasState returns a boolean if a field has been set.
 func (o *Service) HasState() bool {
-	if o != nil && !isNil(o.State) {
+	if o != nil && !IsNil(o.State) {
 		return true
 	}
 
@@ -159,7 +162,7 @@ func (o *Service) SetState(v string) {
 
 // GetPids returns the Pids field value if set, zero value otherwise.
 func (o *Service) GetPids() []int32 {
-	if o == nil || isNil(o.Pids) {
+	if o == nil || IsNil(o.Pids) {
 		var ret []int32
 		return ret
 	}
@@ -169,7 +172,7 @@ func (o *Service) GetPids() []int32 {
 // GetPidsOk returns a tuple with the Pids field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Service) GetPidsOk() ([]int32, bool) {
-	if o == nil || isNil(o.Pids) {
+	if o == nil || IsNil(o.Pids) {
 		return nil, false
 	}
 	return o.Pids, true
@@ -177,7 +180,7 @@ func (o *Service) GetPidsOk() ([]int32, bool) {
 
 // HasPids returns a boolean if a field has been set.
 func (o *Service) HasPids() bool {
-	if o != nil && !isNil(o.Pids) {
+	if o != nil && !IsNil(o.Pids) {
 		return true
 	}
 
@@ -190,20 +193,24 @@ func (o *Service) SetPids(v []int32) {
 }
 
 func (o Service) MarshalJSON() ([]byte, error) {
+	toSerialize, err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o Service) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["id"] = o.Id
-	}
-	if true {
-		toSerialize["service"] = o.Service
-	}
-	if !isNil(o.Enable) {
+	toSerialize["id"] = o.Id
+	toSerialize["service"] = o.Service
+	if !IsNil(o.Enable) {
 		toSerialize["enable"] = o.Enable
 	}
-	if !isNil(o.State) {
+	if !IsNil(o.State) {
 		toSerialize["state"] = o.State
 	}
-	if !isNil(o.Pids) {
+	if !IsNil(o.Pids) {
 		toSerialize["pids"] = o.Pids
 	}
 
@@ -211,7 +218,7 @@ func (o Service) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 func (o *Service) UnmarshalJSON(bytes []byte) (err error) {

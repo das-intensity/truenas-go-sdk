@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the Dataset type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Dataset{}
+
 // Dataset struct for Dataset
 type Dataset struct {
 	Id                   string          `json:"id"`
@@ -180,7 +183,7 @@ func (o *Dataset) SetType(v string) {
 
 // GetMountpoint returns the Mountpoint field value if set, zero value otherwise.
 func (o *Dataset) GetMountpoint() string {
-	if o == nil || isNil(o.Mountpoint) {
+	if o == nil || IsNil(o.Mountpoint) {
 		var ret string
 		return ret
 	}
@@ -190,7 +193,7 @@ func (o *Dataset) GetMountpoint() string {
 // GetMountpointOk returns a tuple with the Mountpoint field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetMountpointOk() (*string, bool) {
-	if o == nil || isNil(o.Mountpoint) {
+	if o == nil || IsNil(o.Mountpoint) {
 		return nil, false
 	}
 	return o.Mountpoint, true
@@ -198,7 +201,7 @@ func (o *Dataset) GetMountpointOk() (*string, bool) {
 
 // HasMountpoint returns a boolean if a field has been set.
 func (o *Dataset) HasMountpoint() bool {
-	if o != nil && !isNil(o.Mountpoint) {
+	if o != nil && !IsNil(o.Mountpoint) {
 		return true
 	}
 
@@ -212,7 +215,7 @@ func (o *Dataset) SetMountpoint(v string) {
 
 // GetEncrypted returns the Encrypted field value if set, zero value otherwise.
 func (o *Dataset) GetEncrypted() bool {
-	if o == nil || isNil(o.Encrypted) {
+	if o == nil || IsNil(o.Encrypted) {
 		var ret bool
 		return ret
 	}
@@ -222,7 +225,7 @@ func (o *Dataset) GetEncrypted() bool {
 // GetEncryptedOk returns a tuple with the Encrypted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetEncryptedOk() (*bool, bool) {
-	if o == nil || isNil(o.Encrypted) {
+	if o == nil || IsNil(o.Encrypted) {
 		return nil, false
 	}
 	return o.Encrypted, true
@@ -230,7 +233,7 @@ func (o *Dataset) GetEncryptedOk() (*bool, bool) {
 
 // HasEncrypted returns a boolean if a field has been set.
 func (o *Dataset) HasEncrypted() bool {
-	if o != nil && !isNil(o.Encrypted) {
+	if o != nil && !IsNil(o.Encrypted) {
 		return true
 	}
 
@@ -244,7 +247,7 @@ func (o *Dataset) SetEncrypted(v bool) {
 
 // GetEncryptionRoot returns the EncryptionRoot field value if set, zero value otherwise.
 func (o *Dataset) GetEncryptionRoot() string {
-	if o == nil || isNil(o.EncryptionRoot) {
+	if o == nil || IsNil(o.EncryptionRoot) {
 		var ret string
 		return ret
 	}
@@ -254,7 +257,7 @@ func (o *Dataset) GetEncryptionRoot() string {
 // GetEncryptionRootOk returns a tuple with the EncryptionRoot field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetEncryptionRootOk() (*string, bool) {
-	if o == nil || isNil(o.EncryptionRoot) {
+	if o == nil || IsNil(o.EncryptionRoot) {
 		return nil, false
 	}
 	return o.EncryptionRoot, true
@@ -262,7 +265,7 @@ func (o *Dataset) GetEncryptionRootOk() (*string, bool) {
 
 // HasEncryptionRoot returns a boolean if a field has been set.
 func (o *Dataset) HasEncryptionRoot() bool {
-	if o != nil && !isNil(o.EncryptionRoot) {
+	if o != nil && !IsNil(o.EncryptionRoot) {
 		return true
 	}
 
@@ -276,7 +279,7 @@ func (o *Dataset) SetEncryptionRoot(v string) {
 
 // GetKeyLoaded returns the KeyLoaded field value if set, zero value otherwise.
 func (o *Dataset) GetKeyLoaded() bool {
-	if o == nil || isNil(o.KeyLoaded) {
+	if o == nil || IsNil(o.KeyLoaded) {
 		var ret bool
 		return ret
 	}
@@ -286,7 +289,7 @@ func (o *Dataset) GetKeyLoaded() bool {
 // GetKeyLoadedOk returns a tuple with the KeyLoaded field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetKeyLoadedOk() (*bool, bool) {
-	if o == nil || isNil(o.KeyLoaded) {
+	if o == nil || IsNil(o.KeyLoaded) {
 		return nil, false
 	}
 	return o.KeyLoaded, true
@@ -294,7 +297,7 @@ func (o *Dataset) GetKeyLoadedOk() (*bool, bool) {
 
 // HasKeyLoaded returns a boolean if a field has been set.
 func (o *Dataset) HasKeyLoaded() bool {
-	if o != nil && !isNil(o.KeyLoaded) {
+	if o != nil && !IsNil(o.KeyLoaded) {
 		return true
 	}
 
@@ -308,7 +311,7 @@ func (o *Dataset) SetKeyLoaded(v bool) {
 
 // GetLocked returns the Locked field value if set, zero value otherwise.
 func (o *Dataset) GetLocked() bool {
-	if o == nil || isNil(o.Locked) {
+	if o == nil || IsNil(o.Locked) {
 		var ret bool
 		return ret
 	}
@@ -318,7 +321,7 @@ func (o *Dataset) GetLocked() bool {
 // GetLockedOk returns a tuple with the Locked field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetLockedOk() (*bool, bool) {
-	if o == nil || isNil(o.Locked) {
+	if o == nil || IsNil(o.Locked) {
 		return nil, false
 	}
 	return o.Locked, true
@@ -326,7 +329,7 @@ func (o *Dataset) GetLockedOk() (*bool, bool) {
 
 // HasLocked returns a boolean if a field has been set.
 func (o *Dataset) HasLocked() bool {
-	if o != nil && !isNil(o.Locked) {
+	if o != nil && !IsNil(o.Locked) {
 		return true
 	}
 
@@ -340,7 +343,7 @@ func (o *Dataset) SetLocked(v bool) {
 
 // GetEncryptionAlgorithm returns the EncryptionAlgorithm field value if set, zero value otherwise.
 func (o *Dataset) GetEncryptionAlgorithm() CompositeValue {
-	if o == nil || isNil(o.EncryptionAlgorithm) {
+	if o == nil || IsNil(o.EncryptionAlgorithm) {
 		var ret CompositeValue
 		return ret
 	}
@@ -350,7 +353,7 @@ func (o *Dataset) GetEncryptionAlgorithm() CompositeValue {
 // GetEncryptionAlgorithmOk returns a tuple with the EncryptionAlgorithm field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetEncryptionAlgorithmOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.EncryptionAlgorithm) {
+	if o == nil || IsNil(o.EncryptionAlgorithm) {
 		return nil, false
 	}
 	return o.EncryptionAlgorithm, true
@@ -358,7 +361,7 @@ func (o *Dataset) GetEncryptionAlgorithmOk() (*CompositeValue, bool) {
 
 // HasEncryptionAlgorithm returns a boolean if a field has been set.
 func (o *Dataset) HasEncryptionAlgorithm() bool {
-	if o != nil && !isNil(o.EncryptionAlgorithm) {
+	if o != nil && !IsNil(o.EncryptionAlgorithm) {
 		return true
 	}
 
@@ -372,7 +375,7 @@ func (o *Dataset) SetEncryptionAlgorithm(v CompositeValue) {
 
 // GetAclmode returns the Aclmode field value if set, zero value otherwise.
 func (o *Dataset) GetAclmode() CompositeValue {
-	if o == nil || isNil(o.Aclmode) {
+	if o == nil || IsNil(o.Aclmode) {
 		var ret CompositeValue
 		return ret
 	}
@@ -382,7 +385,7 @@ func (o *Dataset) GetAclmode() CompositeValue {
 // GetAclmodeOk returns a tuple with the Aclmode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetAclmodeOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.Aclmode) {
+	if o == nil || IsNil(o.Aclmode) {
 		return nil, false
 	}
 	return o.Aclmode, true
@@ -390,7 +393,7 @@ func (o *Dataset) GetAclmodeOk() (*CompositeValue, bool) {
 
 // HasAclmode returns a boolean if a field has been set.
 func (o *Dataset) HasAclmode() bool {
-	if o != nil && !isNil(o.Aclmode) {
+	if o != nil && !IsNil(o.Aclmode) {
 		return true
 	}
 
@@ -404,7 +407,7 @@ func (o *Dataset) SetAclmode(v CompositeValue) {
 
 // GetAcltype returns the Acltype field value if set, zero value otherwise.
 func (o *Dataset) GetAcltype() CompositeValue {
-	if o == nil || isNil(o.Acltype) {
+	if o == nil || IsNil(o.Acltype) {
 		var ret CompositeValue
 		return ret
 	}
@@ -414,7 +417,7 @@ func (o *Dataset) GetAcltype() CompositeValue {
 // GetAcltypeOk returns a tuple with the Acltype field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetAcltypeOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.Acltype) {
+	if o == nil || IsNil(o.Acltype) {
 		return nil, false
 	}
 	return o.Acltype, true
@@ -422,7 +425,7 @@ func (o *Dataset) GetAcltypeOk() (*CompositeValue, bool) {
 
 // HasAcltype returns a boolean if a field has been set.
 func (o *Dataset) HasAcltype() bool {
-	if o != nil && !isNil(o.Acltype) {
+	if o != nil && !IsNil(o.Acltype) {
 		return true
 	}
 
@@ -436,7 +439,7 @@ func (o *Dataset) SetAcltype(v CompositeValue) {
 
 // GetAtime returns the Atime field value if set, zero value otherwise.
 func (o *Dataset) GetAtime() CompositeValue {
-	if o == nil || isNil(o.Atime) {
+	if o == nil || IsNil(o.Atime) {
 		var ret CompositeValue
 		return ret
 	}
@@ -446,7 +449,7 @@ func (o *Dataset) GetAtime() CompositeValue {
 // GetAtimeOk returns a tuple with the Atime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetAtimeOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.Atime) {
+	if o == nil || IsNil(o.Atime) {
 		return nil, false
 	}
 	return o.Atime, true
@@ -454,7 +457,7 @@ func (o *Dataset) GetAtimeOk() (*CompositeValue, bool) {
 
 // HasAtime returns a boolean if a field has been set.
 func (o *Dataset) HasAtime() bool {
-	if o != nil && !isNil(o.Atime) {
+	if o != nil && !IsNil(o.Atime) {
 		return true
 	}
 
@@ -468,7 +471,7 @@ func (o *Dataset) SetAtime(v CompositeValue) {
 
 // GetAvailable returns the Available field value if set, zero value otherwise.
 func (o *Dataset) GetAvailable() CompositeValue {
-	if o == nil || isNil(o.Available) {
+	if o == nil || IsNil(o.Available) {
 		var ret CompositeValue
 		return ret
 	}
@@ -478,7 +481,7 @@ func (o *Dataset) GetAvailable() CompositeValue {
 // GetAvailableOk returns a tuple with the Available field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetAvailableOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.Available) {
+	if o == nil || IsNil(o.Available) {
 		return nil, false
 	}
 	return o.Available, true
@@ -486,7 +489,7 @@ func (o *Dataset) GetAvailableOk() (*CompositeValue, bool) {
 
 // HasAvailable returns a boolean if a field has been set.
 func (o *Dataset) HasAvailable() bool {
-	if o != nil && !isNil(o.Available) {
+	if o != nil && !IsNil(o.Available) {
 		return true
 	}
 
@@ -500,7 +503,7 @@ func (o *Dataset) SetAvailable(v CompositeValue) {
 
 // GetCasesensitivity returns the Casesensitivity field value if set, zero value otherwise.
 func (o *Dataset) GetCasesensitivity() CompositeValue {
-	if o == nil || isNil(o.Casesensitivity) {
+	if o == nil || IsNil(o.Casesensitivity) {
 		var ret CompositeValue
 		return ret
 	}
@@ -510,7 +513,7 @@ func (o *Dataset) GetCasesensitivity() CompositeValue {
 // GetCasesensitivityOk returns a tuple with the Casesensitivity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetCasesensitivityOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.Casesensitivity) {
+	if o == nil || IsNil(o.Casesensitivity) {
 		return nil, false
 	}
 	return o.Casesensitivity, true
@@ -518,7 +521,7 @@ func (o *Dataset) GetCasesensitivityOk() (*CompositeValue, bool) {
 
 // HasCasesensitivity returns a boolean if a field has been set.
 func (o *Dataset) HasCasesensitivity() bool {
-	if o != nil && !isNil(o.Casesensitivity) {
+	if o != nil && !IsNil(o.Casesensitivity) {
 		return true
 	}
 
@@ -532,7 +535,7 @@ func (o *Dataset) SetCasesensitivity(v CompositeValue) {
 
 // GetComments returns the Comments field value if set, zero value otherwise.
 func (o *Dataset) GetComments() CompositeValue {
-	if o == nil || isNil(o.Comments) {
+	if o == nil || IsNil(o.Comments) {
 		var ret CompositeValue
 		return ret
 	}
@@ -542,7 +545,7 @@ func (o *Dataset) GetComments() CompositeValue {
 // GetCommentsOk returns a tuple with the Comments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetCommentsOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.Comments) {
+	if o == nil || IsNil(o.Comments) {
 		return nil, false
 	}
 	return o.Comments, true
@@ -550,7 +553,7 @@ func (o *Dataset) GetCommentsOk() (*CompositeValue, bool) {
 
 // HasComments returns a boolean if a field has been set.
 func (o *Dataset) HasComments() bool {
-	if o != nil && !isNil(o.Comments) {
+	if o != nil && !IsNil(o.Comments) {
 		return true
 	}
 
@@ -564,7 +567,7 @@ func (o *Dataset) SetComments(v CompositeValue) {
 
 // GetCompression returns the Compression field value if set, zero value otherwise.
 func (o *Dataset) GetCompression() CompositeValue {
-	if o == nil || isNil(o.Compression) {
+	if o == nil || IsNil(o.Compression) {
 		var ret CompositeValue
 		return ret
 	}
@@ -574,7 +577,7 @@ func (o *Dataset) GetCompression() CompositeValue {
 // GetCompressionOk returns a tuple with the Compression field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetCompressionOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.Compression) {
+	if o == nil || IsNil(o.Compression) {
 		return nil, false
 	}
 	return o.Compression, true
@@ -582,7 +585,7 @@ func (o *Dataset) GetCompressionOk() (*CompositeValue, bool) {
 
 // HasCompression returns a boolean if a field has been set.
 func (o *Dataset) HasCompression() bool {
-	if o != nil && !isNil(o.Compression) {
+	if o != nil && !IsNil(o.Compression) {
 		return true
 	}
 
@@ -596,7 +599,7 @@ func (o *Dataset) SetCompression(v CompositeValue) {
 
 // GetDeduplication returns the Deduplication field value if set, zero value otherwise.
 func (o *Dataset) GetDeduplication() CompositeValue {
-	if o == nil || isNil(o.Deduplication) {
+	if o == nil || IsNil(o.Deduplication) {
 		var ret CompositeValue
 		return ret
 	}
@@ -606,7 +609,7 @@ func (o *Dataset) GetDeduplication() CompositeValue {
 // GetDeduplicationOk returns a tuple with the Deduplication field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetDeduplicationOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.Deduplication) {
+	if o == nil || IsNil(o.Deduplication) {
 		return nil, false
 	}
 	return o.Deduplication, true
@@ -614,7 +617,7 @@ func (o *Dataset) GetDeduplicationOk() (*CompositeValue, bool) {
 
 // HasDeduplication returns a boolean if a field has been set.
 func (o *Dataset) HasDeduplication() bool {
-	if o != nil && !isNil(o.Deduplication) {
+	if o != nil && !IsNil(o.Deduplication) {
 		return true
 	}
 
@@ -628,7 +631,7 @@ func (o *Dataset) SetDeduplication(v CompositeValue) {
 
 // GetExec returns the Exec field value if set, zero value otherwise.
 func (o *Dataset) GetExec() CompositeValue {
-	if o == nil || isNil(o.Exec) {
+	if o == nil || IsNil(o.Exec) {
 		var ret CompositeValue
 		return ret
 	}
@@ -638,7 +641,7 @@ func (o *Dataset) GetExec() CompositeValue {
 // GetExecOk returns a tuple with the Exec field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetExecOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.Exec) {
+	if o == nil || IsNil(o.Exec) {
 		return nil, false
 	}
 	return o.Exec, true
@@ -646,7 +649,7 @@ func (o *Dataset) GetExecOk() (*CompositeValue, bool) {
 
 // HasExec returns a boolean if a field has been set.
 func (o *Dataset) HasExec() bool {
-	if o != nil && !isNil(o.Exec) {
+	if o != nil && !IsNil(o.Exec) {
 		return true
 	}
 
@@ -660,7 +663,7 @@ func (o *Dataset) SetExec(v CompositeValue) {
 
 // GetKeyFormat returns the KeyFormat field value if set, zero value otherwise.
 func (o *Dataset) GetKeyFormat() CompositeValue {
-	if o == nil || isNil(o.KeyFormat) {
+	if o == nil || IsNil(o.KeyFormat) {
 		var ret CompositeValue
 		return ret
 	}
@@ -670,7 +673,7 @@ func (o *Dataset) GetKeyFormat() CompositeValue {
 // GetKeyFormatOk returns a tuple with the KeyFormat field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetKeyFormatOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.KeyFormat) {
+	if o == nil || IsNil(o.KeyFormat) {
 		return nil, false
 	}
 	return o.KeyFormat, true
@@ -678,7 +681,7 @@ func (o *Dataset) GetKeyFormatOk() (*CompositeValue, bool) {
 
 // HasKeyFormat returns a boolean if a field has been set.
 func (o *Dataset) HasKeyFormat() bool {
-	if o != nil && !isNil(o.KeyFormat) {
+	if o != nil && !IsNil(o.KeyFormat) {
 		return true
 	}
 
@@ -692,7 +695,7 @@ func (o *Dataset) SetKeyFormat(v CompositeValue) {
 
 // GetManagedby returns the Managedby field value if set, zero value otherwise.
 func (o *Dataset) GetManagedby() CompositeValue {
-	if o == nil || isNil(o.Managedby) {
+	if o == nil || IsNil(o.Managedby) {
 		var ret CompositeValue
 		return ret
 	}
@@ -702,7 +705,7 @@ func (o *Dataset) GetManagedby() CompositeValue {
 // GetManagedbyOk returns a tuple with the Managedby field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetManagedbyOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.Managedby) {
+	if o == nil || IsNil(o.Managedby) {
 		return nil, false
 	}
 	return o.Managedby, true
@@ -710,7 +713,7 @@ func (o *Dataset) GetManagedbyOk() (*CompositeValue, bool) {
 
 // HasManagedby returns a boolean if a field has been set.
 func (o *Dataset) HasManagedby() bool {
-	if o != nil && !isNil(o.Managedby) {
+	if o != nil && !IsNil(o.Managedby) {
 		return true
 	}
 
@@ -724,7 +727,7 @@ func (o *Dataset) SetManagedby(v CompositeValue) {
 
 // GetCopies returns the Copies field value if set, zero value otherwise.
 func (o *Dataset) GetCopies() CompositeValue {
-	if o == nil || isNil(o.Copies) {
+	if o == nil || IsNil(o.Copies) {
 		var ret CompositeValue
 		return ret
 	}
@@ -734,7 +737,7 @@ func (o *Dataset) GetCopies() CompositeValue {
 // GetCopiesOk returns a tuple with the Copies field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetCopiesOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.Copies) {
+	if o == nil || IsNil(o.Copies) {
 		return nil, false
 	}
 	return o.Copies, true
@@ -742,7 +745,7 @@ func (o *Dataset) GetCopiesOk() (*CompositeValue, bool) {
 
 // HasCopies returns a boolean if a field has been set.
 func (o *Dataset) HasCopies() bool {
-	if o != nil && !isNil(o.Copies) {
+	if o != nil && !IsNil(o.Copies) {
 		return true
 	}
 
@@ -756,7 +759,7 @@ func (o *Dataset) SetCopies(v CompositeValue) {
 
 // GetQuota returns the Quota field value if set, zero value otherwise.
 func (o *Dataset) GetQuota() CompositeValue {
-	if o == nil || isNil(o.Quota) {
+	if o == nil || IsNil(o.Quota) {
 		var ret CompositeValue
 		return ret
 	}
@@ -766,7 +769,7 @@ func (o *Dataset) GetQuota() CompositeValue {
 // GetQuotaOk returns a tuple with the Quota field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetQuotaOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.Quota) {
+	if o == nil || IsNil(o.Quota) {
 		return nil, false
 	}
 	return o.Quota, true
@@ -774,7 +777,7 @@ func (o *Dataset) GetQuotaOk() (*CompositeValue, bool) {
 
 // HasQuota returns a boolean if a field has been set.
 func (o *Dataset) HasQuota() bool {
-	if o != nil && !isNil(o.Quota) {
+	if o != nil && !IsNil(o.Quota) {
 		return true
 	}
 
@@ -788,7 +791,7 @@ func (o *Dataset) SetQuota(v CompositeValue) {
 
 // GetQuotaCritical returns the QuotaCritical field value if set, zero value otherwise.
 func (o *Dataset) GetQuotaCritical() CompositeValue {
-	if o == nil || isNil(o.QuotaCritical) {
+	if o == nil || IsNil(o.QuotaCritical) {
 		var ret CompositeValue
 		return ret
 	}
@@ -798,7 +801,7 @@ func (o *Dataset) GetQuotaCritical() CompositeValue {
 // GetQuotaCriticalOk returns a tuple with the QuotaCritical field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetQuotaCriticalOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.QuotaCritical) {
+	if o == nil || IsNil(o.QuotaCritical) {
 		return nil, false
 	}
 	return o.QuotaCritical, true
@@ -806,7 +809,7 @@ func (o *Dataset) GetQuotaCriticalOk() (*CompositeValue, bool) {
 
 // HasQuotaCritical returns a boolean if a field has been set.
 func (o *Dataset) HasQuotaCritical() bool {
-	if o != nil && !isNil(o.QuotaCritical) {
+	if o != nil && !IsNil(o.QuotaCritical) {
 		return true
 	}
 
@@ -820,7 +823,7 @@ func (o *Dataset) SetQuotaCritical(v CompositeValue) {
 
 // GetQuotaWarning returns the QuotaWarning field value if set, zero value otherwise.
 func (o *Dataset) GetQuotaWarning() CompositeValue {
-	if o == nil || isNil(o.QuotaWarning) {
+	if o == nil || IsNil(o.QuotaWarning) {
 		var ret CompositeValue
 		return ret
 	}
@@ -830,7 +833,7 @@ func (o *Dataset) GetQuotaWarning() CompositeValue {
 // GetQuotaWarningOk returns a tuple with the QuotaWarning field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetQuotaWarningOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.QuotaWarning) {
+	if o == nil || IsNil(o.QuotaWarning) {
 		return nil, false
 	}
 	return o.QuotaWarning, true
@@ -838,7 +841,7 @@ func (o *Dataset) GetQuotaWarningOk() (*CompositeValue, bool) {
 
 // HasQuotaWarning returns a boolean if a field has been set.
 func (o *Dataset) HasQuotaWarning() bool {
-	if o != nil && !isNil(o.QuotaWarning) {
+	if o != nil && !IsNil(o.QuotaWarning) {
 		return true
 	}
 
@@ -852,7 +855,7 @@ func (o *Dataset) SetQuotaWarning(v CompositeValue) {
 
 // GetReservation returns the Reservation field value if set, zero value otherwise.
 func (o *Dataset) GetReservation() CompositeValue {
-	if o == nil || isNil(o.Reservation) {
+	if o == nil || IsNil(o.Reservation) {
 		var ret CompositeValue
 		return ret
 	}
@@ -862,7 +865,7 @@ func (o *Dataset) GetReservation() CompositeValue {
 // GetReservationOk returns a tuple with the Reservation field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetReservationOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.Reservation) {
+	if o == nil || IsNil(o.Reservation) {
 		return nil, false
 	}
 	return o.Reservation, true
@@ -870,7 +873,7 @@ func (o *Dataset) GetReservationOk() (*CompositeValue, bool) {
 
 // HasReservation returns a boolean if a field has been set.
 func (o *Dataset) HasReservation() bool {
-	if o != nil && !isNil(o.Reservation) {
+	if o != nil && !IsNil(o.Reservation) {
 		return true
 	}
 
@@ -884,7 +887,7 @@ func (o *Dataset) SetReservation(v CompositeValue) {
 
 // GetRefreservation returns the Refreservation field value if set, zero value otherwise.
 func (o *Dataset) GetRefreservation() CompositeValue {
-	if o == nil || isNil(o.Refreservation) {
+	if o == nil || IsNil(o.Refreservation) {
 		var ret CompositeValue
 		return ret
 	}
@@ -894,7 +897,7 @@ func (o *Dataset) GetRefreservation() CompositeValue {
 // GetRefreservationOk returns a tuple with the Refreservation field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetRefreservationOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.Refreservation) {
+	if o == nil || IsNil(o.Refreservation) {
 		return nil, false
 	}
 	return o.Refreservation, true
@@ -902,7 +905,7 @@ func (o *Dataset) GetRefreservationOk() (*CompositeValue, bool) {
 
 // HasRefreservation returns a boolean if a field has been set.
 func (o *Dataset) HasRefreservation() bool {
-	if o != nil && !isNil(o.Refreservation) {
+	if o != nil && !IsNil(o.Refreservation) {
 		return true
 	}
 
@@ -916,7 +919,7 @@ func (o *Dataset) SetRefreservation(v CompositeValue) {
 
 // GetRefquota returns the Refquota field value if set, zero value otherwise.
 func (o *Dataset) GetRefquota() CompositeValue {
-	if o == nil || isNil(o.Refquota) {
+	if o == nil || IsNil(o.Refquota) {
 		var ret CompositeValue
 		return ret
 	}
@@ -926,7 +929,7 @@ func (o *Dataset) GetRefquota() CompositeValue {
 // GetRefquotaOk returns a tuple with the Refquota field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetRefquotaOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.Refquota) {
+	if o == nil || IsNil(o.Refquota) {
 		return nil, false
 	}
 	return o.Refquota, true
@@ -934,7 +937,7 @@ func (o *Dataset) GetRefquotaOk() (*CompositeValue, bool) {
 
 // HasRefquota returns a boolean if a field has been set.
 func (o *Dataset) HasRefquota() bool {
-	if o != nil && !isNil(o.Refquota) {
+	if o != nil && !IsNil(o.Refquota) {
 		return true
 	}
 
@@ -948,7 +951,7 @@ func (o *Dataset) SetRefquota(v CompositeValue) {
 
 // GetRefquotaCritical returns the RefquotaCritical field value if set, zero value otherwise.
 func (o *Dataset) GetRefquotaCritical() CompositeValue {
-	if o == nil || isNil(o.RefquotaCritical) {
+	if o == nil || IsNil(o.RefquotaCritical) {
 		var ret CompositeValue
 		return ret
 	}
@@ -958,7 +961,7 @@ func (o *Dataset) GetRefquotaCritical() CompositeValue {
 // GetRefquotaCriticalOk returns a tuple with the RefquotaCritical field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetRefquotaCriticalOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.RefquotaCritical) {
+	if o == nil || IsNil(o.RefquotaCritical) {
 		return nil, false
 	}
 	return o.RefquotaCritical, true
@@ -966,7 +969,7 @@ func (o *Dataset) GetRefquotaCriticalOk() (*CompositeValue, bool) {
 
 // HasRefquotaCritical returns a boolean if a field has been set.
 func (o *Dataset) HasRefquotaCritical() bool {
-	if o != nil && !isNil(o.RefquotaCritical) {
+	if o != nil && !IsNil(o.RefquotaCritical) {
 		return true
 	}
 
@@ -980,7 +983,7 @@ func (o *Dataset) SetRefquotaCritical(v CompositeValue) {
 
 // GetRefquotaWarning returns the RefquotaWarning field value if set, zero value otherwise.
 func (o *Dataset) GetRefquotaWarning() CompositeValue {
-	if o == nil || isNil(o.RefquotaWarning) {
+	if o == nil || IsNil(o.RefquotaWarning) {
 		var ret CompositeValue
 		return ret
 	}
@@ -990,7 +993,7 @@ func (o *Dataset) GetRefquotaWarning() CompositeValue {
 // GetRefquotaWarningOk returns a tuple with the RefquotaWarning field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetRefquotaWarningOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.RefquotaWarning) {
+	if o == nil || IsNil(o.RefquotaWarning) {
 		return nil, false
 	}
 	return o.RefquotaWarning, true
@@ -998,7 +1001,7 @@ func (o *Dataset) GetRefquotaWarningOk() (*CompositeValue, bool) {
 
 // HasRefquotaWarning returns a boolean if a field has been set.
 func (o *Dataset) HasRefquotaWarning() bool {
-	if o != nil && !isNil(o.RefquotaWarning) {
+	if o != nil && !IsNil(o.RefquotaWarning) {
 		return true
 	}
 
@@ -1012,7 +1015,7 @@ func (o *Dataset) SetRefquotaWarning(v CompositeValue) {
 
 // GetReadonly returns the Readonly field value if set, zero value otherwise.
 func (o *Dataset) GetReadonly() CompositeValue {
-	if o == nil || isNil(o.Readonly) {
+	if o == nil || IsNil(o.Readonly) {
 		var ret CompositeValue
 		return ret
 	}
@@ -1022,7 +1025,7 @@ func (o *Dataset) GetReadonly() CompositeValue {
 // GetReadonlyOk returns a tuple with the Readonly field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetReadonlyOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.Readonly) {
+	if o == nil || IsNil(o.Readonly) {
 		return nil, false
 	}
 	return o.Readonly, true
@@ -1030,7 +1033,7 @@ func (o *Dataset) GetReadonlyOk() (*CompositeValue, bool) {
 
 // HasReadonly returns a boolean if a field has been set.
 func (o *Dataset) HasReadonly() bool {
-	if o != nil && !isNil(o.Readonly) {
+	if o != nil && !IsNil(o.Readonly) {
 		return true
 	}
 
@@ -1044,7 +1047,7 @@ func (o *Dataset) SetReadonly(v CompositeValue) {
 
 // GetRecordsize returns the Recordsize field value if set, zero value otherwise.
 func (o *Dataset) GetRecordsize() CompositeValue {
-	if o == nil || isNil(o.Recordsize) {
+	if o == nil || IsNil(o.Recordsize) {
 		var ret CompositeValue
 		return ret
 	}
@@ -1054,7 +1057,7 @@ func (o *Dataset) GetRecordsize() CompositeValue {
 // GetRecordsizeOk returns a tuple with the Recordsize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetRecordsizeOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.Recordsize) {
+	if o == nil || IsNil(o.Recordsize) {
 		return nil, false
 	}
 	return o.Recordsize, true
@@ -1062,7 +1065,7 @@ func (o *Dataset) GetRecordsizeOk() (*CompositeValue, bool) {
 
 // HasRecordsize returns a boolean if a field has been set.
 func (o *Dataset) HasRecordsize() bool {
-	if o != nil && !isNil(o.Recordsize) {
+	if o != nil && !IsNil(o.Recordsize) {
 		return true
 	}
 
@@ -1076,7 +1079,7 @@ func (o *Dataset) SetRecordsize(v CompositeValue) {
 
 // GetSync returns the Sync field value if set, zero value otherwise.
 func (o *Dataset) GetSync() CompositeValue {
-	if o == nil || isNil(o.Sync) {
+	if o == nil || IsNil(o.Sync) {
 		var ret CompositeValue
 		return ret
 	}
@@ -1086,7 +1089,7 @@ func (o *Dataset) GetSync() CompositeValue {
 // GetSyncOk returns a tuple with the Sync field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetSyncOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.Sync) {
+	if o == nil || IsNil(o.Sync) {
 		return nil, false
 	}
 	return o.Sync, true
@@ -1094,7 +1097,7 @@ func (o *Dataset) GetSyncOk() (*CompositeValue, bool) {
 
 // HasSync returns a boolean if a field has been set.
 func (o *Dataset) HasSync() bool {
-	if o != nil && !isNil(o.Sync) {
+	if o != nil && !IsNil(o.Sync) {
 		return true
 	}
 
@@ -1108,7 +1111,7 @@ func (o *Dataset) SetSync(v CompositeValue) {
 
 // GetSnapdir returns the Snapdir field value if set, zero value otherwise.
 func (o *Dataset) GetSnapdir() CompositeValue {
-	if o == nil || isNil(o.Snapdir) {
+	if o == nil || IsNil(o.Snapdir) {
 		var ret CompositeValue
 		return ret
 	}
@@ -1118,7 +1121,7 @@ func (o *Dataset) GetSnapdir() CompositeValue {
 // GetSnapdirOk returns a tuple with the Snapdir field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetSnapdirOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.Snapdir) {
+	if o == nil || IsNil(o.Snapdir) {
 		return nil, false
 	}
 	return o.Snapdir, true
@@ -1126,7 +1129,7 @@ func (o *Dataset) GetSnapdirOk() (*CompositeValue, bool) {
 
 // HasSnapdir returns a boolean if a field has been set.
 func (o *Dataset) HasSnapdir() bool {
-	if o != nil && !isNil(o.Snapdir) {
+	if o != nil && !IsNil(o.Snapdir) {
 		return true
 	}
 
@@ -1140,7 +1143,7 @@ func (o *Dataset) SetSnapdir(v CompositeValue) {
 
 // GetUsed returns the Used field value if set, zero value otherwise.
 func (o *Dataset) GetUsed() CompositeValue {
-	if o == nil || isNil(o.Used) {
+	if o == nil || IsNil(o.Used) {
 		var ret CompositeValue
 		return ret
 	}
@@ -1150,7 +1153,7 @@ func (o *Dataset) GetUsed() CompositeValue {
 // GetUsedOk returns a tuple with the Used field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetUsedOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.Used) {
+	if o == nil || IsNil(o.Used) {
 		return nil, false
 	}
 	return o.Used, true
@@ -1158,7 +1161,7 @@ func (o *Dataset) GetUsedOk() (*CompositeValue, bool) {
 
 // HasUsed returns a boolean if a field has been set.
 func (o *Dataset) HasUsed() bool {
-	if o != nil && !isNil(o.Used) {
+	if o != nil && !IsNil(o.Used) {
 		return true
 	}
 
@@ -1172,7 +1175,7 @@ func (o *Dataset) SetUsed(v CompositeValue) {
 
 // GetPbkdf2iters returns the Pbkdf2iters field value if set, zero value otherwise.
 func (o *Dataset) GetPbkdf2iters() CompositeValue {
-	if o == nil || isNil(o.Pbkdf2iters) {
+	if o == nil || IsNil(o.Pbkdf2iters) {
 		var ret CompositeValue
 		return ret
 	}
@@ -1182,7 +1185,7 @@ func (o *Dataset) GetPbkdf2iters() CompositeValue {
 // GetPbkdf2itersOk returns a tuple with the Pbkdf2iters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetPbkdf2itersOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.Pbkdf2iters) {
+	if o == nil || IsNil(o.Pbkdf2iters) {
 		return nil, false
 	}
 	return o.Pbkdf2iters, true
@@ -1190,7 +1193,7 @@ func (o *Dataset) GetPbkdf2itersOk() (*CompositeValue, bool) {
 
 // HasPbkdf2iters returns a boolean if a field has been set.
 func (o *Dataset) HasPbkdf2iters() bool {
-	if o != nil && !isNil(o.Pbkdf2iters) {
+	if o != nil && !IsNil(o.Pbkdf2iters) {
 		return true
 	}
 
@@ -1204,7 +1207,7 @@ func (o *Dataset) SetPbkdf2iters(v CompositeValue) {
 
 // GetOrigin returns the Origin field value if set, zero value otherwise.
 func (o *Dataset) GetOrigin() CompositeValue {
-	if o == nil || isNil(o.Origin) {
+	if o == nil || IsNil(o.Origin) {
 		var ret CompositeValue
 		return ret
 	}
@@ -1214,7 +1217,7 @@ func (o *Dataset) GetOrigin() CompositeValue {
 // GetOriginOk returns a tuple with the Origin field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetOriginOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.Origin) {
+	if o == nil || IsNil(o.Origin) {
 		return nil, false
 	}
 	return o.Origin, true
@@ -1222,7 +1225,7 @@ func (o *Dataset) GetOriginOk() (*CompositeValue, bool) {
 
 // HasOrigin returns a boolean if a field has been set.
 func (o *Dataset) HasOrigin() bool {
-	if o != nil && !isNil(o.Origin) {
+	if o != nil && !IsNil(o.Origin) {
 		return true
 	}
 
@@ -1236,7 +1239,7 @@ func (o *Dataset) SetOrigin(v CompositeValue) {
 
 // GetXattr returns the Xattr field value if set, zero value otherwise.
 func (o *Dataset) GetXattr() CompositeValue {
-	if o == nil || isNil(o.Xattr) {
+	if o == nil || IsNil(o.Xattr) {
 		var ret CompositeValue
 		return ret
 	}
@@ -1246,7 +1249,7 @@ func (o *Dataset) GetXattr() CompositeValue {
 // GetXattrOk returns a tuple with the Xattr field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetXattrOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.Xattr) {
+	if o == nil || IsNil(o.Xattr) {
 		return nil, false
 	}
 	return o.Xattr, true
@@ -1254,7 +1257,7 @@ func (o *Dataset) GetXattrOk() (*CompositeValue, bool) {
 
 // HasXattr returns a boolean if a field has been set.
 func (o *Dataset) HasXattr() bool {
-	if o != nil && !isNil(o.Xattr) {
+	if o != nil && !IsNil(o.Xattr) {
 		return true
 	}
 
@@ -1268,7 +1271,7 @@ func (o *Dataset) SetXattr(v CompositeValue) {
 
 // GetVolsize returns the Volsize field value if set, zero value otherwise.
 func (o *Dataset) GetVolsize() CompositeValue {
-	if o == nil || isNil(o.Volsize) {
+	if o == nil || IsNil(o.Volsize) {
 		var ret CompositeValue
 		return ret
 	}
@@ -1278,7 +1281,7 @@ func (o *Dataset) GetVolsize() CompositeValue {
 // GetVolsizeOk returns a tuple with the Volsize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetVolsizeOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.Volsize) {
+	if o == nil || IsNil(o.Volsize) {
 		return nil, false
 	}
 	return o.Volsize, true
@@ -1286,7 +1289,7 @@ func (o *Dataset) GetVolsizeOk() (*CompositeValue, bool) {
 
 // HasVolsize returns a boolean if a field has been set.
 func (o *Dataset) HasVolsize() bool {
-	if o != nil && !isNil(o.Volsize) {
+	if o != nil && !IsNil(o.Volsize) {
 		return true
 	}
 
@@ -1300,7 +1303,7 @@ func (o *Dataset) SetVolsize(v CompositeValue) {
 
 // GetVolblocksize returns the Volblocksize field value if set, zero value otherwise.
 func (o *Dataset) GetVolblocksize() CompositeValue {
-	if o == nil || isNil(o.Volblocksize) {
+	if o == nil || IsNil(o.Volblocksize) {
 		var ret CompositeValue
 		return ret
 	}
@@ -1310,7 +1313,7 @@ func (o *Dataset) GetVolblocksize() CompositeValue {
 // GetVolblocksizeOk returns a tuple with the Volblocksize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Dataset) GetVolblocksizeOk() (*CompositeValue, bool) {
-	if o == nil || isNil(o.Volblocksize) {
+	if o == nil || IsNil(o.Volblocksize) {
 		return nil, false
 	}
 	return o.Volblocksize, true
@@ -1318,7 +1321,7 @@ func (o *Dataset) GetVolblocksizeOk() (*CompositeValue, bool) {
 
 // HasVolblocksize returns a boolean if a field has been set.
 func (o *Dataset) HasVolblocksize() bool {
-	if o != nil && !isNil(o.Volblocksize) {
+	if o != nil && !IsNil(o.Volblocksize) {
 		return true
 	}
 
@@ -1331,125 +1334,125 @@ func (o *Dataset) SetVolblocksize(v CompositeValue) {
 }
 
 func (o Dataset) MarshalJSON() ([]byte, error) {
+	toSerialize, err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o Dataset) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["id"] = o.Id
-	}
-	if true {
-		toSerialize["name"] = o.Name
-	}
-	if true {
-		toSerialize["pool"] = o.Pool
-	}
-	if true {
-		toSerialize["type"] = o.Type
-	}
-	if !isNil(o.Mountpoint) {
+	toSerialize["id"] = o.Id
+	toSerialize["name"] = o.Name
+	toSerialize["pool"] = o.Pool
+	toSerialize["type"] = o.Type
+	if !IsNil(o.Mountpoint) {
 		toSerialize["mountpoint"] = o.Mountpoint
 	}
-	if !isNil(o.Encrypted) {
+	if !IsNil(o.Encrypted) {
 		toSerialize["encrypted"] = o.Encrypted
 	}
-	if !isNil(o.EncryptionRoot) {
+	if !IsNil(o.EncryptionRoot) {
 		toSerialize["encryption_root"] = o.EncryptionRoot
 	}
-	if !isNil(o.KeyLoaded) {
+	if !IsNil(o.KeyLoaded) {
 		toSerialize["key_loaded"] = o.KeyLoaded
 	}
-	if !isNil(o.Locked) {
+	if !IsNil(o.Locked) {
 		toSerialize["locked"] = o.Locked
 	}
-	if !isNil(o.EncryptionAlgorithm) {
+	if !IsNil(o.EncryptionAlgorithm) {
 		toSerialize["encryption_algorithm"] = o.EncryptionAlgorithm
 	}
-	if !isNil(o.Aclmode) {
+	if !IsNil(o.Aclmode) {
 		toSerialize["aclmode"] = o.Aclmode
 	}
-	if !isNil(o.Acltype) {
+	if !IsNil(o.Acltype) {
 		toSerialize["acltype"] = o.Acltype
 	}
-	if !isNil(o.Atime) {
+	if !IsNil(o.Atime) {
 		toSerialize["atime"] = o.Atime
 	}
-	if !isNil(o.Available) {
+	if !IsNil(o.Available) {
 		toSerialize["available"] = o.Available
 	}
-	if !isNil(o.Casesensitivity) {
+	if !IsNil(o.Casesensitivity) {
 		toSerialize["casesensitivity"] = o.Casesensitivity
 	}
-	if !isNil(o.Comments) {
+	if !IsNil(o.Comments) {
 		toSerialize["comments"] = o.Comments
 	}
-	if !isNil(o.Compression) {
+	if !IsNil(o.Compression) {
 		toSerialize["compression"] = o.Compression
 	}
-	if !isNil(o.Deduplication) {
+	if !IsNil(o.Deduplication) {
 		toSerialize["deduplication"] = o.Deduplication
 	}
-	if !isNil(o.Exec) {
+	if !IsNil(o.Exec) {
 		toSerialize["exec"] = o.Exec
 	}
-	if !isNil(o.KeyFormat) {
+	if !IsNil(o.KeyFormat) {
 		toSerialize["key_format"] = o.KeyFormat
 	}
-	if !isNil(o.Managedby) {
+	if !IsNil(o.Managedby) {
 		toSerialize["managedby"] = o.Managedby
 	}
-	if !isNil(o.Copies) {
+	if !IsNil(o.Copies) {
 		toSerialize["copies"] = o.Copies
 	}
-	if !isNil(o.Quota) {
+	if !IsNil(o.Quota) {
 		toSerialize["quota"] = o.Quota
 	}
-	if !isNil(o.QuotaCritical) {
+	if !IsNil(o.QuotaCritical) {
 		toSerialize["quota_critical"] = o.QuotaCritical
 	}
-	if !isNil(o.QuotaWarning) {
+	if !IsNil(o.QuotaWarning) {
 		toSerialize["quota_warning"] = o.QuotaWarning
 	}
-	if !isNil(o.Reservation) {
+	if !IsNil(o.Reservation) {
 		toSerialize["reservation"] = o.Reservation
 	}
-	if !isNil(o.Refreservation) {
+	if !IsNil(o.Refreservation) {
 		toSerialize["refreservation"] = o.Refreservation
 	}
-	if !isNil(o.Refquota) {
+	if !IsNil(o.Refquota) {
 		toSerialize["refquota"] = o.Refquota
 	}
-	if !isNil(o.RefquotaCritical) {
+	if !IsNil(o.RefquotaCritical) {
 		toSerialize["refquota_critical"] = o.RefquotaCritical
 	}
-	if !isNil(o.RefquotaWarning) {
+	if !IsNil(o.RefquotaWarning) {
 		toSerialize["refquota_warning"] = o.RefquotaWarning
 	}
-	if !isNil(o.Readonly) {
+	if !IsNil(o.Readonly) {
 		toSerialize["readonly"] = o.Readonly
 	}
-	if !isNil(o.Recordsize) {
+	if !IsNil(o.Recordsize) {
 		toSerialize["recordsize"] = o.Recordsize
 	}
-	if !isNil(o.Sync) {
+	if !IsNil(o.Sync) {
 		toSerialize["sync"] = o.Sync
 	}
-	if !isNil(o.Snapdir) {
+	if !IsNil(o.Snapdir) {
 		toSerialize["snapdir"] = o.Snapdir
 	}
-	if !isNil(o.Used) {
+	if !IsNil(o.Used) {
 		toSerialize["used"] = o.Used
 	}
-	if !isNil(o.Pbkdf2iters) {
+	if !IsNil(o.Pbkdf2iters) {
 		toSerialize["pbkdf2iters"] = o.Pbkdf2iters
 	}
-	if !isNil(o.Origin) {
+	if !IsNil(o.Origin) {
 		toSerialize["origin"] = o.Origin
 	}
-	if !isNil(o.Xattr) {
+	if !IsNil(o.Xattr) {
 		toSerialize["xattr"] = o.Xattr
 	}
-	if !isNil(o.Volsize) {
+	if !IsNil(o.Volsize) {
 		toSerialize["volsize"] = o.Volsize
 	}
-	if !isNil(o.Volblocksize) {
+	if !IsNil(o.Volblocksize) {
 		toSerialize["volblocksize"] = o.Volblocksize
 	}
 
@@ -1457,7 +1460,7 @@ func (o Dataset) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 func (o *Dataset) UnmarshalJSON(bytes []byte) (err error) {

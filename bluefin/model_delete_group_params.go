@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the DeleteGroupParams type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &DeleteGroupParams{}
+
 // DeleteGroupParams struct for DeleteGroupParams
 type DeleteGroupParams struct {
 	DeleteUsers          *bool `json:"delete_users,omitempty"`
@@ -41,7 +44,7 @@ func NewDeleteGroupParamsWithDefaults() *DeleteGroupParams {
 
 // GetDeleteUsers returns the DeleteUsers field value if set, zero value otherwise.
 func (o *DeleteGroupParams) GetDeleteUsers() bool {
-	if o == nil || isNil(o.DeleteUsers) {
+	if o == nil || IsNil(o.DeleteUsers) {
 		var ret bool
 		return ret
 	}
@@ -51,7 +54,7 @@ func (o *DeleteGroupParams) GetDeleteUsers() bool {
 // GetDeleteUsersOk returns a tuple with the DeleteUsers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeleteGroupParams) GetDeleteUsersOk() (*bool, bool) {
-	if o == nil || isNil(o.DeleteUsers) {
+	if o == nil || IsNil(o.DeleteUsers) {
 		return nil, false
 	}
 	return o.DeleteUsers, true
@@ -59,7 +62,7 @@ func (o *DeleteGroupParams) GetDeleteUsersOk() (*bool, bool) {
 
 // HasDeleteUsers returns a boolean if a field has been set.
 func (o *DeleteGroupParams) HasDeleteUsers() bool {
-	if o != nil && !isNil(o.DeleteUsers) {
+	if o != nil && !IsNil(o.DeleteUsers) {
 		return true
 	}
 
@@ -72,8 +75,16 @@ func (o *DeleteGroupParams) SetDeleteUsers(v bool) {
 }
 
 func (o DeleteGroupParams) MarshalJSON() ([]byte, error) {
+	toSerialize, err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o DeleteGroupParams) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !isNil(o.DeleteUsers) {
+	if !IsNil(o.DeleteUsers) {
 		toSerialize["delete_users"] = o.DeleteUsers
 	}
 
@@ -81,7 +92,7 @@ func (o DeleteGroupParams) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 func (o *DeleteGroupParams) UnmarshalJSON(bytes []byte) (err error) {

@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 )
 
+// checks if the Pool type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Pool{}
+
 // Pool struct for Pool
 type Pool struct {
 	Id                   int32   `json:"id"`
@@ -99,7 +102,7 @@ func (o *Pool) SetName(v string) {
 
 // GetGuid returns the Guid field value if set, zero value otherwise.
 func (o *Pool) GetGuid() string {
-	if o == nil || isNil(o.Guid) {
+	if o == nil || IsNil(o.Guid) {
 		var ret string
 		return ret
 	}
@@ -109,7 +112,7 @@ func (o *Pool) GetGuid() string {
 // GetGuidOk returns a tuple with the Guid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Pool) GetGuidOk() (*string, bool) {
-	if o == nil || isNil(o.Guid) {
+	if o == nil || IsNil(o.Guid) {
 		return nil, false
 	}
 	return o.Guid, true
@@ -117,7 +120,7 @@ func (o *Pool) GetGuidOk() (*string, bool) {
 
 // HasGuid returns a boolean if a field has been set.
 func (o *Pool) HasGuid() bool {
-	if o != nil && !isNil(o.Guid) {
+	if o != nil && !IsNil(o.Guid) {
 		return true
 	}
 
@@ -155,7 +158,7 @@ func (o *Pool) SetPath(v string) {
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *Pool) GetStatus() string {
-	if o == nil || isNil(o.Status) {
+	if o == nil || IsNil(o.Status) {
 		var ret string
 		return ret
 	}
@@ -165,7 +168,7 @@ func (o *Pool) GetStatus() string {
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Pool) GetStatusOk() (*string, bool) {
-	if o == nil || isNil(o.Status) {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
 	return o.Status, true
@@ -173,7 +176,7 @@ func (o *Pool) GetStatusOk() (*string, bool) {
 
 // HasStatus returns a boolean if a field has been set.
 func (o *Pool) HasStatus() bool {
-	if o != nil && !isNil(o.Status) {
+	if o != nil && !IsNil(o.Status) {
 		return true
 	}
 
@@ -187,7 +190,7 @@ func (o *Pool) SetStatus(v string) {
 
 // GetHealthy returns the Healthy field value if set, zero value otherwise.
 func (o *Pool) GetHealthy() bool {
-	if o == nil || isNil(o.Healthy) {
+	if o == nil || IsNil(o.Healthy) {
 		var ret bool
 		return ret
 	}
@@ -197,7 +200,7 @@ func (o *Pool) GetHealthy() bool {
 // GetHealthyOk returns a tuple with the Healthy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Pool) GetHealthyOk() (*bool, bool) {
-	if o == nil || isNil(o.Healthy) {
+	if o == nil || IsNil(o.Healthy) {
 		return nil, false
 	}
 	return o.Healthy, true
@@ -205,7 +208,7 @@ func (o *Pool) GetHealthyOk() (*bool, bool) {
 
 // HasHealthy returns a boolean if a field has been set.
 func (o *Pool) HasHealthy() bool {
-	if o != nil && !isNil(o.Healthy) {
+	if o != nil && !IsNil(o.Healthy) {
 		return true
 	}
 
@@ -219,7 +222,7 @@ func (o *Pool) SetHealthy(v bool) {
 
 // GetIsDecrypted returns the IsDecrypted field value if set, zero value otherwise.
 func (o *Pool) GetIsDecrypted() bool {
-	if o == nil || isNil(o.IsDecrypted) {
+	if o == nil || IsNil(o.IsDecrypted) {
 		var ret bool
 		return ret
 	}
@@ -229,7 +232,7 @@ func (o *Pool) GetIsDecrypted() bool {
 // GetIsDecryptedOk returns a tuple with the IsDecrypted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Pool) GetIsDecryptedOk() (*bool, bool) {
-	if o == nil || isNil(o.IsDecrypted) {
+	if o == nil || IsNil(o.IsDecrypted) {
 		return nil, false
 	}
 	return o.IsDecrypted, true
@@ -237,7 +240,7 @@ func (o *Pool) GetIsDecryptedOk() (*bool, bool) {
 
 // HasIsDecrypted returns a boolean if a field has been set.
 func (o *Pool) HasIsDecrypted() bool {
-	if o != nil && !isNil(o.IsDecrypted) {
+	if o != nil && !IsNil(o.IsDecrypted) {
 		return true
 	}
 
@@ -251,7 +254,7 @@ func (o *Pool) SetIsDecrypted(v bool) {
 
 // GetEncryptkeyPath returns the EncryptkeyPath field value if set, zero value otherwise.
 func (o *Pool) GetEncryptkeyPath() string {
-	if o == nil || isNil(o.EncryptkeyPath) {
+	if o == nil || IsNil(o.EncryptkeyPath) {
 		var ret string
 		return ret
 	}
@@ -261,7 +264,7 @@ func (o *Pool) GetEncryptkeyPath() string {
 // GetEncryptkeyPathOk returns a tuple with the EncryptkeyPath field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *Pool) GetEncryptkeyPathOk() (*string, bool) {
-	if o == nil || isNil(o.EncryptkeyPath) {
+	if o == nil || IsNil(o.EncryptkeyPath) {
 		return nil, false
 	}
 	return o.EncryptkeyPath, true
@@ -269,7 +272,7 @@ func (o *Pool) GetEncryptkeyPathOk() (*string, bool) {
 
 // HasEncryptkeyPath returns a boolean if a field has been set.
 func (o *Pool) HasEncryptkeyPath() bool {
-	if o != nil && !isNil(o.EncryptkeyPath) {
+	if o != nil && !IsNil(o.EncryptkeyPath) {
 		return true
 	}
 
@@ -282,29 +285,31 @@ func (o *Pool) SetEncryptkeyPath(v string) {
 }
 
 func (o Pool) MarshalJSON() ([]byte, error) {
+	toSerialize, err := o.ToMap()
+	if err != nil {
+		return []byte{}, err
+	}
+	return json.Marshal(toSerialize)
+}
+
+func (o Pool) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["id"] = o.Id
-	}
-	if true {
-		toSerialize["name"] = o.Name
-	}
-	if !isNil(o.Guid) {
+	toSerialize["id"] = o.Id
+	toSerialize["name"] = o.Name
+	if !IsNil(o.Guid) {
 		toSerialize["guid"] = o.Guid
 	}
-	if true {
-		toSerialize["path"] = o.Path
-	}
-	if !isNil(o.Status) {
+	toSerialize["path"] = o.Path
+	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
-	if !isNil(o.Healthy) {
+	if !IsNil(o.Healthy) {
 		toSerialize["healthy"] = o.Healthy
 	}
-	if !isNil(o.IsDecrypted) {
+	if !IsNil(o.IsDecrypted) {
 		toSerialize["is_decrypted"] = o.IsDecrypted
 	}
-	if !isNil(o.EncryptkeyPath) {
+	if !IsNil(o.EncryptkeyPath) {
 		toSerialize["encryptkey_path"] = o.EncryptkeyPath
 	}
 
@@ -312,7 +317,7 @@ func (o Pool) MarshalJSON() ([]byte, error) {
 		toSerialize[key] = value
 	}
 
-	return json.Marshal(toSerialize)
+	return toSerialize, nil
 }
 
 func (o *Pool) UnmarshalJSON(bytes []byte) (err error) {
